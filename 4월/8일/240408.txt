@@ -1,0 +1,8 @@
+이클립스 설치!!
+- 드라이브 가서 jdk랑 이클립스 파일 다운
+1. 환경변수 path 편집 + jdk bin 폴더 주소 입력 + 맨 위로 올리기
+2. cmd  java -version 체크
+3. 이클립스 실행 후 오른쪽 상단 플러스 자바 더블클릭
+4. 프리퍼런스 encoding 콘텐트 타입 자바 클래스 파일 UTF-8 / workspace text file encoding UTF-8
+
+
