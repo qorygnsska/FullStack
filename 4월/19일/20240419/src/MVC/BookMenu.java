@@ -41,14 +41,23 @@ public class BookMenu {
 	}
 
 	public void insertBook() {
-		Book book = new Book("교훈의 자바", "배교훈", "it 개발", 30000);
+		sc.nextLine(); // 버퍼 비우기
+		System.out.print("책 제목 입력 : ");
+		String title = sc.nextLine();
+		System.out.print("책 저자 입력 : ");
+		String author = sc.nextLine();
+		System.out.print("책 분류 입력 : ");
+		String category = sc.nextLine();
+		System.out.print("책 가격 입력 : ");
+		int price = sc.nextInt();
+		sc.nextLine(); // 버퍼 비우기
+		
+		Book book = new Book(title, author, category, price);
 		boolean result = bc.insert(book);
 		if(result) {
 			System.out.println("정상 저장되었습니다.");
-			mainMenu();
 		}else {
 			System.out.println("공간이 꽉 찼다. 저장이 안 됐습니다.");
-			mainMenu();
 		}
 		
 	}
@@ -57,27 +66,29 @@ public class BookMenu {
 		Book[] bookList = bc.selectList();
 		if(bookList.length < 1) {
 			System.out.println("존재하는 도서가 없습니다.");
-			mainMenu();
 		}else {
 			for(int i = 0; i < bc.getCount(); i++) {
 				bookList[i].show();
-				System.out.println();
 			}
-			mainMenu();
 		}
 	}
 
 	public void searchBook() {
-		sc.nextLine();
-		System.out.print("검색할 키워드 입력 : ");
+		sc.nextLine(); // 버퍼 비우기
+		System.out.print("검색할 키워드 입력 : "); 
 		String keyword = sc.nextLine();
-		Book[] searchList = bc.searchBook(keyword);
-		if(searchList.length < 1) {
+		
+		Book[] searchList = bc.searchBook(keyword); // searchList에 키워드 존재하는 배열 받아옴
+		if(bc.j == 0) { // searchList에 값이 없다면
 			System.out.println("검색 결과가 없습니다.");
-			mainMenu();
-		}else {
-			for(int i = 0; i < searchList.length; i++) {
-				System.out.println(searchList[i]);
+			
+		}else { // searchList에 값이 있다면
+			for(int i = 0; i < bc.j; i++) {
+				System.out.println("제목 : " + searchList[i].getTitle() + 
+						   		 ", 저자 : " + searchList[i].getAuthor() + 
+						   		 ", 분류 : " + searchList[i].getCategory() + 
+						   		 ", 가격 : " + searchList[i].getPrice() + "원");
+		
 			}
 		}
 	}

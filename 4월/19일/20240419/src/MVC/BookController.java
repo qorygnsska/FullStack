@@ -3,6 +3,7 @@ package MVC;
 // 데이터 저장, 찾기, 수정, 삭제, 조회
 // 처리를 하는 클래스로 사용
 public class BookController {
+	public int j;
 	
 	private Book[] bookList = new Book[20];
 	// 책의 개수를 저장하는 count 변수가 필요하다
@@ -33,10 +34,12 @@ public class BookController {
 	}
 	
 	public Book[] searchBook(String keyword) {
-		Book[] searchList = {};
+		j = 0;
+		Book[] searchList = new Book[20];
 		for(int i = 0; i < count; i++) {
 			if(bookList[i].getTitle().contains(keyword)) {
-				searchList[i] = bookList[i];
+				searchList[j] = bookList[i];
+				j++;
 			}
 		}
 		return searchList;

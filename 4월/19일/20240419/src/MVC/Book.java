@@ -51,10 +51,10 @@ public class Book {
 	}
 	
 	public void show() {
-		System.out.println("책 이름 : " + title);
-		System.out.println("책 가격 : " + price);
-		System.out.println("책 분류 : " + category);
-		System.out.println("책 저자 : " + author);
+		System.out.println("책 이름 : " + title +
+				", 책 가격 : " + price +
+				", 책 분류 : " + category +
+				", 책 저자 : " + author);
 	}
 	
 }
