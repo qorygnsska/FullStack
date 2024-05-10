@@ -1,0 +1,8 @@
+오라클 설치!!!
+1. cmd -> sqlplus 엔터
+'sqlplus'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다. 
+나와야 오라클 깔 수 있음
+다른게 뜰 시 캡쳐하고 강사님께 잔디치기!
+
+2. 구글에 oracle 21c express 다운로드
+https://www.oracle.com/kr/database/technologies/xe-downloads.html
