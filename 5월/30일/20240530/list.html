@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리스트</title>
+</head>
+<body>
+    <h1>리스트</h1>
+     <!--  
+        리스트는 두가지로 나뉜다.
+        모양이 있는 리스트 하고 모양이 없는 리스트로 구별 된다.
+
+        정렬이 되었는 지, 안 되었는 지로 구별!
+
+        순서가 없는 리스트 <ul>태그 사용
+
+        글자 앞에 동그라미가 붙는다.
+        만약 동그라미를 제거하고 싶을 경우
+        css 스타일 꾸밈을 없앨 수 있다.
+        style="list-style: none;"
+
+        만약 동그라미를 전부 없애고 싶으면 ul태그의 속성으로 지정하면 됨
+    -->
+    <ul style="list-style: none;">
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카페모카</li>
+    </ul>
+
+    <!--
+        순서가 있는 리스트
+        정렬 리스트 ol 태그
+        기본적으로는 1부터 세팅
+
+        ol태그의 시작번호 설정
+        start="3"
+    -->
+    <ol>
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카페모카</li>
+    </ol>
+
+    <ol start="3">
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카페모카</li>
+    </ol>
+
+    <br>
+    <br>
+    <!--역순으로 출력하기 reversed 속성-->
+    <ol reversed>
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카페모카</li>
+    </ol>
+
+    <!-- 중첩 목록 -->
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ol>
+                <li>Black Tea</li>
+                <li>Greean Tea</li>
+            </ol>
+           
+        </li>
+        <li>Milk</li>
+    </ul>
+
+</body>
+</html>

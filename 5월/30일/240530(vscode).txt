@@ -1,0 +1,5 @@
+파일 다운링크
+https://code.visualstudio.com/
+안에서 다운로드는 영상 참조
+
+실행 단축키 Alt + o ->  Alt + l
