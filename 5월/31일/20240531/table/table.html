@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>테이블 합치기</title>
+</head>
+<body>
+    <!--
+        테이블 합치기 (열,행)
+        테이블의 열을 합칠 때 사용하는 속성
+        colspn 키워드 이용한다. 
+    -->
+    <h1>테이블의 열 합치기 </h1>
+    <table border="1">
+        <tr>
+            <td>참치</td>
+            <td colspan="2">고래</td>
+        </tr>
+        <tr>
+            <td>상어</td>
+			<td>문어</td>		
+			<td>꽁치</td>
+        </tr>
+
+        <tr>
+            <td>오징어</td>
+			<td>고등어</td>		
+			<td>돌고래</td>
+        </tr>
+    </table>
+
+    <!--
+        테이블의 행 합치기
+        rowspan 속성
+        몇 칸을 합칠 것인지 작성
+
+        자동 정렬 
+        ctrl + k + f
+    -->
+    <h1>테이블의 행 합치기 </h1>
+    <table border="1">
+        <tr>
+            <td>참치</td>
+			<td>고래</td>
+			<td>날치</td>	
+       </tr>
+        <tr>
+            <td rowspan="2">
+                상어
+            </td>
+            <td>문어</td>
+            <td>꽁치</td>
+            
+        </tr>
+        <tr>
+            <td>고등어</td>
+            <td>돌고래</td>
+        </tr>        
+    </table>
+
+    <!--
+        테이블 상단에 제목이나 간단한 설명을 붙일 수 있다
+        <caption> 이용
+    -->
+    <h1>캡션태그</h1>
+    <table border="1">
+        <tr>
+            <td>참치</td>
+			<td>고래</td>
+			<td>날치</td>	
+       </tr>
+    </table>
+</body>
+</html>

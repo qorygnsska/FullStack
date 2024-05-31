@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 태그</title>
+</head>
+
+<body>
+    <!--
+     선택 입력
+    select 타입  
+    여러개의 옵션이 드롭다운 리스트로 되어있다 
+    그 중에서 단 하나의 옵션만을 입력 받을 수 있다.
+    -->
+    <form>
+        <h3>드롭다운</h3>
+        <select>
+            <option value="bmw">BMW</option>
+            <option value="benz" selected>Benz</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="kia">KIA</option>
+        </select>
+    </form>
+
+    <!--
+        전화번호, 날짜와 시간
+        tel
+        datetime : 국제 표준시(UTC) 연,월,일,시,분,초,분할 초
+
+        datetime-local : 사용자가 있는 지역을 기준으로한 날짜와 시간
+        date : 사용자 지역을 기준으로 연,월,일
+        month : 연, 월
+        week : 연, 주
+        time : 시, 분, 초, 분할 초
+    -->
+    <form>
+        <h3>핸드폰 번호</h3>
+        <input type="tel" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" title="###-####-####">
+
+        <h3>날짜와 시간</h3>
+        <input type="datetime-local"><br>
+        <input type="submit" value="전송">
+    </form>
+
+    <!--
+        select 드롭다운은 선택만 가능하다.
+        datalist 태그
+        선택하거나 키워드를 입력하거나 선택할 수 있다.
+
+        id는 여러 태그중 유일한 하나!
+    -->
+    <form>
+        <h3>dataList 태그</h3>
+        <input type="text" list="browsers">
+        <datalist id="browsers">
+            <option value="internet"></option>
+            <option value="Firefox"></option>
+            <option value="Chrom"></option>
+            <option value="Opera"></option>
+        </datalist>
+    </form>
+    <br>
+    <!--
+        태그들을 그룹화해서 하나의 단락에 저장하는 태그
+        fieldset 태그
+    -->
+    <form>
+        <fieldset>
+            <legend> Login </legend>
+            ID : <input type="text" /> <br>
+            password : <input type="password" />
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend> Login 2 </legend>
+            E-mail : <input type="e-mail" /> <br>
+            password : <input type="password" />
+        </fieldset>
+    </form>
+</body>
+
+</html>

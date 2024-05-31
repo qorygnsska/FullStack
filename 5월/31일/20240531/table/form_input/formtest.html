@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form style="text-align: center;">
+        <h1>자바 개발자 지원서</h1>
+        <p>Java, JSP, Spring에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+        <hr>
+        <h3>개인 정보</h3>
+        <label>이름</label>
+        <input type="text" required><br>
+        <label>연락처</label>
+        <input type="text" maxlength="3" minlength="3" size="3">
+        <label>-</label>
+        <input type="text" maxlength="4" minlength="4" size="3" required>
+        <label>-</label>
+        <input type="text" maxlength="4" minlength="4" size="3" required><br>
+        <label>이메일</label>
+        <input type="email" required>
+        <hr>
+
+        <h3>지원 분야</h3>
+        <input type="radio" name="part" value="웹 퍼블리싱"> 웹 퍼블리싱
+        <input type="radio" name="part" value="프론트앤드"> 프론트앤드
+        <input type="radio" name="part" value="웹 애플리케이션 개발"> 웹 애플리케이션 개발
+        <hr>
+
+        <h3>기술 능력</h3>
+        <input type="checkbox" value="HTML"> HTML
+        <input type="checkbox" value="CSS"> CSS
+        <input type="checkbox" value="JavaScript"> JavaScript
+        <input type="checkbox" value="Java"> Java
+        <input type="checkbox" value="JSP"> JSP
+        <input type="checkbox" value="Spring"> Spring
+        <hr>
+
+        <h3>전공 분야</h3>
+        <label>학과</label>
+        <select>
+            <option value="컴퓨터공학과" selected>컴퓨터공학과</option>
+            <option value="사과">사과</option>
+            <option value="용과">용과</option>
+        </select>
+
+        <hr>
+        <input type="submit" value="접수하기">
+        <input type="reset" value="다시 쓰기">
+    </form>
+</body>
+
+</html>
