@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가상클래스 선택자</title>
+  <!-- 
+    의사 선택자
+     - html 요소를 직접적으로 스타일링한다.
+     가상 선택자는 html 요소를 직접적으로 
+     선택하는 것이 아니라 해당 요소의 
+     상태에 따라 선택하여 꾸며주는 것!
+
+     ":" 이 가상 클래스 선택자 이다!
+     hover => 선택자에 마우스 포인터가 올라가 있는
+          동안에만 선택된다.
+
+    div태그 너비랑 높이를 지정하지 않으면 그냥 
+    한 줄을 선으로 표시한다. 
+  
+  -->
+
+  <style>
+    a:hover{
+      color:lime;
+      font-size: 50px;
+    }
+    /* box1 클래스 속성에 너비 100px 100px
+      background : tomato 
+      애니메이션 움직임 실행 시간 단위는 초"s"
+      붙인다. 
+    */
+    .box1{
+      width:100px;
+      height: 100px;
+      background-color: tomato;
+      transition-duration: 1s;
+    }
+
+    /*마우스가 올라갔을 때 실행해라!*/
+    .box1:hover{
+      width:200px;
+      background-color: mediumorchid;
+    }
+    
+    .box2{
+      width:100px;
+      height: 100px;
+      background-color: pink;
+      transition-duration: 1s;
+    }
+    /*마우스를 누르고 있는 동안에만 실행해라!*/
+    .box2:active {
+      width:200px;      
+      background-color: skyblue;
+      
+    }
+
+
+
+  </style>
+
+</head>
+<body>
+  
+  <a href="https://www.google.com">google</a>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <input type="text"/>
+  
+  <ul class="fruits">
+    <li>딸기</li> <!-- first-child -->
+    <li>수박</li>
+    <li>오렌지</li>
+    <li>망고</li>
+    <li>사과</li> <!-- last-child -->
+  </ul>
+  
+
+
+
+</body>
+</html>

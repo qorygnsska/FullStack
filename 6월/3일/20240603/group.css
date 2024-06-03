@@ -1,0 +1,41 @@
+*{
+    background-color: beige;
+    text-align: center;
+}
+/*
+
+*/
+h1, h2, p{
+    background-color: blue;
+    color: white;
+    
+}
+
+.headings{
+    color: green;
+    background-color: aliceblue;
+  
+}
+
+.headings2{
+    /*글 스타일 굵기 bold
+    font-weight: bold;*/
+    color: blue;
+}
+
+/*복합 선택자*/
+span.orange{
+    color: green;
+}
+
+/*자식 선택자 : ">"이 선택자고 자식 요소
+    내 태그 안에 한단계 아래 요소를 선택*/
+ul > .orange{
+    color: blueviolet;
+}
+
+/*자손 선택자 : " "(공백1칸)이 선택자이고 자손요소(모든 요소)를 선택*/
+div .apple{
+    color: mediumaquamarine;
+}
+

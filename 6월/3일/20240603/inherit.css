@@ -1,0 +1,19 @@
+
+body{
+    background-color: hotpink;
+}
+
+/* 부모 요소의 스타일
+parent{
+    
+}parent라는 태그를 찾아라!
+*/
+.parent{
+    color: white; /* 텍스트 색상을 흰색으로 설정*/
+}
+
+/*자식 요소의 스타일*/
+.child{
+    font-size: 50px;
+    color: blue;
+}
