@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델2.html</title>
+    <style>
+        /*기본적으로 div block 요소
+          span은 inline요소  변경 할 수있다.
+          display : 요소값 */
+        div{
+            background-color: lightblue;
+            width:200px;
+            height:50px;
+            margin: 20px; /*바깥여백*/
+            padding: 20px;
+            display: inline;
+        }
+        span{
+            background-color: lightcoral;
+            width:200px;
+            height:50px;
+            margin: 20px; 
+            padding: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+    <span>span : 1</span> <span>span : 2</span> <span>span : 3</span>
+    <span>span : 4</span>
+    <span>span : 5</span>
+</body>
+</html>
+
+<!--
+ block 레벨 요소
+  - 항상 새로운 라인에서 시작한다.
+  - 화면 크기 전체의 가로폭을 차지한다.
+  - width,height,maring,padding 프로퍼티적용됨
+  - block요소 안에 inline 요소를 포함할 수있다.
+
+  inline 레벨 요소
+  - 새로운 라인에서 시작하지 않으며 문장
+    중간에 들어갈 수 있다. 
+    줄을 바꾸지 않고 다른 요소와 함께 한행에
+    위치한다.
+  - content의 너비만큼 가로폭을 차지한다.
+  - width,height,maring-top,margin-bottom
+   프로퍼티를 지정할 수 없다. 
+   상하 여백을 지정할 때는 line-height 지정한다
+  - inline 안에는 block레벨 요소를 포함할 수없다
+
+  inline-block레벨
+   - inline레벨 요소와 같이 한 줄에 표현은
+     되지만 width,heigh,margin 프로퍼티 지정
+      가능하다. 
+
+-->

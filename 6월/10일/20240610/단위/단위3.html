@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위3.html</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+    <!-- em  배수 단위로 상대 단위이다!
+       부모 요소의 글꼴 크기를 의미한다.
+       자신이 속한 요소의 폰트 크기를 기준으로 하기
+       때문에 상속관계에 따라서 변동 될 수있다. -->
+    <div class="box box1">Font size: 1em(16px)</div>
+    <div class="box box2">Font size: 1.5em(24px)</div>
+    <div class="box box3">Font size: 2(32px)</div>
+    <div class="box box4">Font size: 2.5em(40px)</div>
+    <div class="box box5">Font size: 3em(48px)</div>
+
+    <div class="parent">
+        Parent element (font-size: 1.5em = 24px)
+        <div class="child">
+            Child element (font-size: 2em = 48px)
+            <div class="grandchild">
+                Grandchild element (font-size: 0.5em = 24px)
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--
+            div 태그 
+              웹페이지에서 레이아웃(태그들의 배치)를
+              할 때 가장 많이 사용이 되는 태그
+
+              태그로 요소들을 묶어 놓으면 배경색이나
+              테두리 등의 스타일로 구역별로 나눠서
+              적용하기 쉽다.
+            
+           시멘틱태그
+             html5문서를 명확한 구조로 파악하기 쉽게
+             개발자 코드 수정하고 유지보수하는데 
+             편해질 수있다.
+            header : 제목,로고,검색 폼, 작성자 이름등 포함
+            main : 문서의 주요 콘텐츠 영역
+            nav : 다른 페이지로 링크를 보여주는 영역
+                 메뉴, 목차, 색인등으로 쓰인다.
+            aside : 문서의 좌측과 우측 사이드 위치
+                영역을 사용 주로 광고,부수적인 내용이
+                차지한다.
+            footer: 바닥글,주로 웹페이지의 정보가 들어
+                가는 영역, 회사소개
+
+            기술면접
+             - 시멘틱 태그의 장점
+             html4까지는 div태그를 이용해서 배치를 
+             하다보니깐 어디가 어딘지 본문인지,제목인지
+             , 하단 인지 알수가 없다!
+             특정키워드를 이용해서 검색했을 때 그에
+             맞는 글이 잘 노출될 수있도록 해주는것이
+             바로 시멘틱태그
+
+             button 태그와 a 태그의 차이점             
+
+        -->
+
+
+
+
+</body>
+
+</html>

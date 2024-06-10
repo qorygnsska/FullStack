@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델5.html</title>
+    <style>
+        .box1{
+            width:100px;
+            height:100px;
+            background-color: lightsalmon;
+            padding: 20px;
+        }
+        .box2{
+            width:100px;
+            height:100px;
+            background-color: lightsalmon;
+            padding: 30px 40px;
+        }
+        /* 내가 지정한 너비와 높이 패딩을 지정하는
+           순간 크기가 변경된다. 요소들이 겹치거나
+           안보이거나 레이아웃 배치가 제대로 안될 수있다.*/
+
+        .box3{
+            width:140px;
+            height:140px;
+            background-color: lightpink;
+            padding: 30px 40px;
+            box-sizing: border-box;
+            /*
+            box-sizing 속성을 border-box
+             로 지정하면 지정된 패딩 값에 따른
+             전체 크기가 자동으로 계산된다. 
+            
+             box-sizing 속성은 기본값이 
+            content-box로 패딩 값 만큼 자동으로
+            커진다. 
+            */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        padding : 요소의 내부(안쪽) 여백을 지정한다.
+        기본값은 0px이다!
+
+        padding : 단축 속성 여러 개별 속성을 한꺼번에
+                 지정할 수있다.
+        padding의 속성 줄 때 margin과 똑같다!
+        padding 위쪽 오른쪽 아래쪽 왼쪽 => 시계 방향
+		padding 위쪽 [왼쪽 오른쪽] 아래쪽 => 왼쪽, 오른쪽 여백이 똑같이 들어간다.
+		padding [위쪽 아래쪽] [왼쪽 오른쪽] => 위쪽, 아래쪽 여백이 똑같이 들어가고 왼쪽, 오른쪽 여백이 똑같이 들어간다.
+		padding [위쪽 오른쪽 아래쪽 왼쪽] => 모든 여백이 똑같이 들어간다.
+		
+		padding-top, padding-bottom, padding-left, padding-right => 개별 속성
+		padding-top: 요소 내부 위쪽 여백을 지정한다.
+		padding-bottom: 요소 내부 아래쪽 여백을 지정한다.
+		padding-left: 요소 내부 왼쪽 여백을 지정한다.
+		padding-right: 요소 내부 오른쪽 여백을 지정한다.
+    -->
+    <div class="box1">
+        Hello World!!
+    </div> <br>
+
+    <div class="box2" >
+        Hello World!!
+    </div><br>
+
+    <div class="box3">
+        Hello World!!
+    </div><br>
+</body>
+</html>
+<!--
+    border: 요소의 테두리 선을 설정한다.
+
+    border => 전체 단축 속성, 선두께, 선종류, 선색상을 한꺼번에 지정할 수 있다.
+		border 선두께 선종류 선색상
+		
+		border-width => 선두께 단축 속성, thin(얇은), medium(중간, 기본값), thick(두꺼운)
+		border-width 위쪽 오른쪽 아래쪽 왼쪽
+		border-width 위쪽 [왼쪽 오른쪽] 아래쪽
+		border-width [위쪽 아래쪽] [왼쪽 오른쪽]
+		border-width [위쪽 오른쪽 아래쪽 왼쪽]
+		
+		border-bottom-width, border-left-width, border-right-width, border-top-width => 선두께 개별 속성
+		border-bottom-width: 아래쪽 선의 두께를 설정한다.
+		border-left-width: 왼쪽 선의 두께를 설정한다.
+		border-right-width: 오른쪽 선의 두께를 설정한다.
+		border-top-width: 위쪽 선의 두께를 설정한다.
+
+
+-->

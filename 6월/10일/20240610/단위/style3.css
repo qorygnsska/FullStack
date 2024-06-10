@@ -1,0 +1,55 @@
+/* style3.css */
+body {
+    font-size: 16px;
+}
+.parent{
+    font-size: 1.5em; /*16px * 1.5 = 24px */
+    background-color: lightgreen;
+    margin-bottom: 10px;
+}
+.child{
+    font-size:2em; /* 48px */
+    background-color: lightpink;
+    margin-bottom: 10px;
+}
+.grandchild{
+    font-size: 0.5em; /*24px*/
+    background-color: lightcoral;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+.box{
+    /*각 박스 사이에 여백 아래쪽으로*/
+    margin-bottom: 10px ;
+
+}
+
+.box1 {
+    font-size:1em;
+    background-color: lightblue;
+}
+
+.box2 {
+    font-size:1.5em;
+    background-color: lightblue;
+}
+
+.box3 {
+    font-size:2em;
+    background-color: lightblue;
+}
+
+.box4 {
+    font-size:2.5em;
+    background-color: lightblue;
+}
+
+.box5 {
+    font-size:3em;
+    background-color: lightblue;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위4.html</title>
+    <style>
+        /* rem 
+          em은 배수 단위로 커지고 상속 영향으로
+          부모의 폰트 사이즈가 변경되면 바뀐다.
+
+          rem 은 최상위 요소(html)의 사이즈를 기준
+          으로 삼는다. 사용자가 브라우저의 기본 폰트
+          크기를 변경하더라고 이에 따라 웹 사이트의 
+          레이아웃을 적절히 조정 할 수있다. 
+        */
+        html{
+            font-size:16px;
+        }
+        body{
+            font-size:2rem;
+        }
+        p{
+            font-size:1.5rem;
+        }
+    </style>
+</head>
+<body>
+    이것은 body부분입니다. 
+    <p>이것은 본문 태그 입니다.! 24px</p>
+    
+</body>
+</html>

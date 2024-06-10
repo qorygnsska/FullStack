@@ -1,0 +1,48 @@
+/* ctrl + / 자동 주석 
+파일명: style2.css
+*/
+
+#box{
+    width: 100%;
+    height: 30px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+.container{
+    width:100%;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+/*부모 태그에서 적용한 css를 그대로 상속 받는다*/
+.box1{
+    width:80%;
+    height:20%;
+    background-color:lightblue;
+    margin-bottom: 10px;
+}
+
+.box2{
+    width:60%;
+    height:15%;
+    background-color:lightgreen;
+    margin-bottom: 10px;
+}
+.box3{
+    width:40%;
+    height:30%;
+    background-color:lightcoral;
+    margin-bottom: 10px;
+}
+.box4{
+    width:50%;
+    height:25%;
+    background-color:lightpink;
+    margin-bottom: 10px;
+}
+.box5{
+    width:90%;
+    height:10%;
+    background-color:lightseagreen;
+    margin-bottom: 10px;
+}

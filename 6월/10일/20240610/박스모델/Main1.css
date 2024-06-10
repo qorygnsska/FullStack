@@ -1,0 +1,29 @@
+/* 파일명: Main1.css */
+body{
+    background-color: lightblue;
+    
+}
+
+.box{
+    display: inline-block;
+    border: 2px solid white;
+    height: 200px;
+    text-align: center;
+    vertical-align: top;
+    /*  요소의 세로 정렬을 제어하는데 사용된다.
+    inline-block 요소가 서로 다른 높이를 
+    가지더라도 위쪽을 기준으로 정렬하면 한줄에
+    정렬되는 효과를 볼 수있다. */
+}
+.box1{
+    
+    width:400px;
+    
+}
+.box2{
+    
+    width:500px;
+}
+table{
+    width:100px;
+}

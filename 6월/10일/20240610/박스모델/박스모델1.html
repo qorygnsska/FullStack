@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>박스모델1.html</title>
+    <style>
+       div{
+        /*block 요소의 width 속성을 auto로 
+        지정하면 100% 기본값으로 사용된다.*/
+        width:auto;
+
+        /*block 요소의 height 속성을 auto로 
+        지정하면 0% 기본값으로 사용된다.*/
+        height:auto;
+        background-color: lightcyan;
+       }
+       span{
+        /*inline 요소의 width 속성을 auto로 
+        지정하면 0% 기본값으로 사용된다.*/
+        width:auto;
+         /*inline 요소의 height 속성을 auto로 
+        지정하면 0% 기본값으로 사용된다.*/
+        height:auto;
+        background-color: lightgreen;
+       }
+
+    </style>
+</head>
+<body>
+    <div>
+        hello.!!
+    </div>
+    <span>
+        싫은데?        
+    </span>
+    <!--
+    <p>모든 html 요소는 box형태의 영역을 가지고 있다.</p>
+    <p> box형태란 사각형을 의미한다.</p>
+    <p>content 요소의 텍스트나 이미지등의 실제 내용이 
+       위치하는 영역이다. width,height를 프로퍼티로 갖는다.
+    </p>
+   
+        display 속성 layout정의를 할 때 자주
+        사용되는 내용이다!
+
+        block 블록요소 
+        div, h1~h6 ,p 태그 
+        사용 가능한 최대 가로 너비를 사용한다
+        한줄에 하나의 태그만 표현한다. 
+        기본적으로 width : 100% height: 0%
+        태그를 사용하면 줄이 변경된다.
+
+        안쪽여백 padding , margin(바깥여백)
+
+        inline (인라인 요소)
+         span, img,...
+         필요한 만큼의 너비를 사용한다.
+         한 줄에 여러개의 태그를 사용할 수있다.
+         수평으로 펼쳐진다. 태그가 사용되도 
+         줄이 변경되지 않는다. 
+         텍스트에 사용된다. 
+
+    -->
+    
+</body>
+</html>
+
+<!--
+     div{
+            background-color: red;
+            /*블록 요소는 너비와 높이가 적용된다.*/
+            width:200px;
+            height:50px;
+        }
+        span{
+            background-color: lightgreen;
+            /* 인라인 요소들은 너비와 높이가 적용되지
+            않고 무시된다. */
+            width:200px;
+            height:50px; 
+        }
+-->
