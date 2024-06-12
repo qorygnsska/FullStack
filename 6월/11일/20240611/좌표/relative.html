@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>relative</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: yellowgreen;
+            border: 4px solid red;
+            border-radius: 10px;
+        }
+        .relative{
+            background-color: palevioletred;
+            border: 4px solid blue;
+            position: relative;
+            /* left:100px;
+            top: 100px; */
+            bottom: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <!--
+        position 좌표값을 성정할 수 있다.
+        relative 현재 생성된 본인 위치에서 좌표를 설정할 수 있다.
+
+        top : 요소의 position 속성의 기준에 맞는 위쪽에서 떨어지는 거리(위치)를 지정
+
+        bottom : 요소의 position 속성의 기준에 맞는 아래쪽에서 떨어지는 거리(위치)를 지정
+        left, right
+
+        fixed : 브라우저 화면을 기준으로 고정을 시킬 수 있다.
+
+        static : 요소의 좌표를 사용하지 않을 때,  배치 불가능
+
+        absolute : 자신의 위치가 아닌 부모요소를 기준으로 위치를 지정
+    -->
+        <div class="box">123</div>
+
+        <div class="box relative">456</div>
+
+        <div class="box">789</div>
+        
+</body>
+</html>

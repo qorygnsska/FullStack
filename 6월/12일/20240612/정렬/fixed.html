@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fixed.html</title>
+</head>
+<style>
+    .container{
+        margin: 200px;
+        padding: 10px;
+        background-color: darkgray;
+    }
+    .box{
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        background-color: chocolate;
+    }
+    
+    /* fixed 부모가 브라우저를 기준으로 위치 지정한다 
+    .box2{
+        background-color: darkblue;
+        position: fixed;
+        top: 0;
+        right: 0;
+    } 
+    
+    sticky 부모요소 안에 위치를 잡고 있다가 스크롤이 내려왔을 때 고정이 된다*/
+    .box2{
+        background-color: darkblue;
+        position: sticky;
+        top: 50px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+        <div class="box box6"></div>
+        <div class="box box7"></div>
+        <div class="box box8"></div>
+        <div class="box box9"></div>
+        <div class="box box10"></div>
+    </div>
+</body>
+
+</html>

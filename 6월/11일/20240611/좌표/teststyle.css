@@ -1,0 +1,13 @@
+body{
+    background-color: antiquewhite;
+    text-align: center;
+}
+.container{
+    width: 100%;
+}
+.item{
+    margin-right: 80px;
+    float: left;
+    width: 29%;
+    /* clear: both;  위에 적용된 float정렬 내용을 모두 취소한다.*/
+}

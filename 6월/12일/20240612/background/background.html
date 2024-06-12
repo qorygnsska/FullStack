@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background.html</title>
+    <style>
+        body{
+            /* url(경로)
+            파일 경로를 작성, 웹 사이트 url */
+            /* background-image: url("../img/shoes.jpg"); */
+            /* background-image: url("../img/dot.png"), url("../img/shoes.jpg"); */
+            background-image: url("../img/shoes.jpg");
+
+            /* 배경화면을 반복 설정 
+                no-repeat : 반복 안함*/
+            background-repeat: no-repeat;
+            /* 배경화면 꽉 채우기 */
+            background-size: cover;
+            /* max-width: 500px; */
+
+        }
+        p{
+            /* 기본적으로 요소들은 마진과 패딩이 기본 설정이 되어있는 태그들이 있다 */
+            margin: 0;
+            padding: 0;
+        }
+        .back{
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 150px;
+            /* 글씨를 약간 투명하게 설정 */
+        }
+        .box{
+         text-align: center;   
+         margin-top: 80px;            
+        }
+        #btn{
+            width: 200px;
+            height: 60px;
+            font-size: 20px;
+        }
+        .box2parent{
+            text-align: center;
+        }
+        .box2{
+            /* text-align: center; */
+            width: 1000px;
+            height: 200px;
+            background-color:lightgray;
+            color: black;
+            margin-top: 80px;     
+        }
+    </style>
+</head>
+<body>
+    <!-- 요소에 배경 이미지를 지정 -->
+     <div class="back">
+        <h3>Buy Our excellent shoes!</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sapien suscipit tincidunt ullamcorper. Cras ac sem sed mauris maximus rhoncus vel in metus. Nam pharetra arcu sit amet dolor interdum, eget scelerisque libero finibus. Phasellus quis vulputate ante.</p>
+     </div>
+
+     <div class="box">
+        <button id="btn">Buy Now</button>
+     </div>
+     <div class="box2parent">
+     <div class="box2">
+        <h3>How we design our shoes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sapien suscipit tincidunt ullamcorper. Cras ac sem sed mauris maximus rhoncus vel in metus. Nam pharetra arcu sit amet dolor interdum, eget scelerisque libero finibus. Phasellus quis vulputate ante.</p>
+     </div>
+    </div>
+</body>
+</html>

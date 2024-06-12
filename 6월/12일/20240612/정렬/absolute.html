@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absolute.html</title>
+    <style>
+        .container{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            background-color: beige;
+            border: 2px solid black;
+            margin: 50px auto;
+        }
+        .box{
+            position: absolute;
+            border: 2px solid black;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 부모를 기준으로 자식의 위치를 잡는 정렬 
+        absolute
+        부모의 기준이 되는 요소 relative
+        위에 relative 부모가 없을 경우에는 웹 브라우저를 기준으로 위치를 지정할 수 있다.
+        
+        position 기본 static 위치 변경안함
+        웹 브라우저를 기준으로 위치 변경
+        absolute-->
+    <div class="container">
+        <div class="box">
+            12345
+        </div>
+    </div>
+</body>
+</html>
