@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품카테고리(애니메이션4)</title>
+</head>
+<style>
+    .shop-bg {
+        background: #eee;
+        padding: 20px;
+    }
+
+    .shop-container {
+        display: flex;
+        width: 90%;
+        margin: auto;
+    }
+
+    .shop-item {
+        position: relative;
+        width: 33%;
+        padding: 10px;
+        overflow: hidden; /* 내 범위에서 빠져나간건 안보이게 해라 */
+    }
+
+    .shop-item img {
+        width: 100%;
+        display: block;
+    }
+
+    .overlay{
+        position: absolute;
+        background: lightgray;
+        width: 97%;
+        height: 97%;
+        opacity: 0;
+        transition: all 1.5s;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    /* 일정시간 : 애니메이션이 동작하는 시간
+    지연시간 : 마우스가 올라갔을 때 바로 시작하는게 아닌 잠깐 멈추는 시간 
+    일정시간, 지연시간 = 2s , 1s*/
+    .overlay:hover{
+        opacity: 0.5;
+    }
+</style>
+
+<body>
+    <div class="shop-bg">
+        <!-- 각각의 상품 내용 -->
+        <div class="shop-container">
+
+            <div class="shop-item">
+                <!-- 회색의 상자를 하나 만들어서 -->
+                <div class="overlay">
+                    160,000원
+                </div>
+                <img src="../img/product1.jpg" alt="product1">
+            </div>
+
+            <div class="shop-item">
+                <div class="overlay">
+                    품절
+                </div>
+                <img src="../img/product2.jpg" alt="product1">
+            </div>
+
+            <div class="shop-item">
+                <div class="overlay">
+                    비싸 너 못사 ㅋㅋ
+                </div>
+                <img src="../img/product3.jpg" alt="product1">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

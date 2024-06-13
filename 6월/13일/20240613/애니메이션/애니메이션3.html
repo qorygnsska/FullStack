@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션3.html</title>
+    <style>
+        /* div{
+            width:100px;
+            height: 50px;
+            background: red;
+            padding: 10px;
+            color:white;
+            margin-bottom: 10px;
+            transition-property: width,opacity;
+
+        }
+        div:nth-child(1){
+            transition-duration: 0.5s;
+        }
+        div:nth-child(2){
+            transition-duration: 2s,1s;
+        }
+        div:nth-child(3){
+            transition-duration: 5s,2.5s;
+        }
+
+         최종 끝나는 디자인 + 이벤트 
+        div:hover {
+            width: 300px;
+            opacity: 0.1;
+        }
+
+        */
+        /* str1 클래스 그룹에서 
+        b를 선택해서 red로 글씨를 변경
+        
+        형제 요소를 선택할 때 index
+        번호는 1부터 시작을 한다.
+        */
+
+        .str1 li:nth-child(2) {
+            color: red;
+        }
+
+        .str1 li:nth-child(4) {
+            color: green;
+        }
+
+        /* nth-child() 연산
+        ()안에 "n"을 입력하면 n은 0부터
+        시작해서 자동으로 1씩 증가된다.
+        "n"을 이용한 곱셈 연산시 "*"
+        연산자를 사용하지 않으며 "n" 앞에
+        숫자가 위치해야 한다.
+        
+        "n"을 이용한 덧셈, 뺄셈 연산시
+        "+ , -" 연산자를 이용하는데
+        "n" 뒤에 숫자가 위치해야 된다.
+        */
+
+        /* 짝수 번째 모든 요소를 선택 */
+        .str2 li:nth-child(2n) {
+            color: hotpink;
+        }
+
+        /* 홀수 번째 모든 요소 선택 */
+        .str2 li:nth-child(2n +1) {
+            color: blue
+        }
+
+        /* 3번째 index 이후로 모든 요소 선택 */
+
+        .str3 li:nth-child(n + 3) {
+            color: blueviolet;
+
+        }
+
+        /* .str4 class의 1번째 div
+        요소가 아니라 p태그가 아니고
+        div 태그 이므로 p:nth-child(1)
+        아무것도 선택 되지 않는다.
+        모든 요소는 전체 자식의 순서로 선택을 해야한다*/
+        .str4 p:nth-child(2){
+            color:yellowgreen;
+        }
+
+        /* box-group class */
+        /* .box-group div:first-child{
+            color: tomato;
+            font-weight: bold;
+        } */
+
+        /* class의 자식, 자손 요소들 중에서 첫번 째 요소를 선택할 때
+            첫번째 요소들의 태그가 다를 경우 지정할 수 없다
+            그래서 빈칸으로 비워두면 전체태그 */
+        .box-group :first-child{
+            color: orange;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--
+        부모가 같은 형제 요소
+        중에서 index번호를 이용해서
+        요소값을 선택할 수 있다.
+    -->
+    <div>0.5s</div>
+    <div>2s , 1s</div>
+    <div>5s , 2.5s </div>
+
+    <ul class="str1">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+
+    <ul class="str2">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+
+    <ul class="str3">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+
+    <ul class="str4">
+        <div>딸기</div>
+        <p>수박</p>
+        <p>오렌지</p>
+        <p>망고</p>
+        <span>사과</span>
+    </ul>
+
+    <div class="box-group">
+        <div>1</div>
+        <div>2</div>
+        <div>3
+            <p>3-1</p>
+            <p>3-2</p>
+            <p>3-3</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

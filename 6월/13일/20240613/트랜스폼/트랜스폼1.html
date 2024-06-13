@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼1.html</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            font-size: 30px;
+            margin: 50px;
+
+            /* 애니메이션의 시작 위치를 설정 */
+            /* 자기 자신위치를 기억해서 */
+            position:relative;
+            top: 0;
+            left: 0;
+            transition-duration: 10s;
+        }
+
+        .box:hover{
+            background: green;
+
+            /* transform: translate(100px, 300px);요소의 위치를 x, y 만큼 이동시킴 */
+            /* transform: translateX(200px); x의 위치를 이동 */
+            /* transform: rotate(1000deg); 각도만큼 회전, 음수를 주면 반대방향으로 돔*/
+            
+            /* transform: 두개 이상의 변환하는 함수를 사용할 때
+            단축 속성을 이용해서 공백을 기준으로 나눠 주면 됨 */
+            transform: translate(900px, 900px) rotate(20000deg);
+            
+            /* 애니메이션의 종료 위치를 설정 */
+            /* top: 200px;
+            left: 200px; */
+
+            /* filter: brightness();
+            ()괄호 안에 퍼센트를 사용해서 현재 초록색을 조금 더 밝거나 어둡게 표현 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">123</div>
+</body>
+</html>

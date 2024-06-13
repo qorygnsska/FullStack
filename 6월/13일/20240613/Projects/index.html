@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+
+    <!-- font awesome-->
+    <script src="https://kit.fontawesome.com/fed837f62b.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* css에서 변수를 이용해서 속성값 저장 */
+    :root {
+        --color--border: #03e8f9;
+        --size-max-width: 1200px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    /* ----- header----- */
+    .header {
+        background: black;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .header__logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header__logo__img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .header__logo__title {
+        font-size: 2rem;
+    }
+
+    .header__menu {
+        display: flex;
+        gap: 10px;
+        font-size: 20px;
+    }
+
+    .header__menu__item {
+        padding: 10px 16px;
+    }
+
+    /* 마우스가 올라갔을 때 실행하는 css*/
+    .header__menu__item:hover {
+        border-bottom: 1px solid lightcyan;
+    }
+
+    /* ----- home ----- */
+    #home {
+        background-color: black;
+        color: white;
+        padding: 50px 16px;
+        padding-top: 150px;
+        text-align: center;
+    }
+
+    .home__img {
+        width: 300px;
+        height: 300px;
+        /* css 변수를 이용해서 적용할 때는 var(css변수명) */
+        border: 3px solid var(--color--border);
+        border-radius: 100%;
+    }
+
+    .home__title {
+        font-size: 3rem;
+    }
+
+    .home__title--strong {
+        color: var(--color--border);
+    }
+
+    .home__contact {
+        background: var(--color--border);
+        color: black;
+        margin: 30px;
+        padding: 1rem;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    .home__contact:hover {
+        background: black;
+        color: white;
+        /* border 밖으로 그려지는 선 
+            border는 두께만큼 전체 크기를 늘어나게 하는 반변
+            outline은 전체크기를 늘리는게 아니라 단지 테두리만 생기는 것
+            offset : 테두리랑 아웃라인 사이의 여백*/
+        outline: 2px solid var(--color--border);
+    }
+
+    /* 공통적인 section 영역 css */
+    .section {
+        padding: 4rem;
+        text-align: center;
+    }
+
+    .max-container {
+        max-width: 1500px;
+        margin: auto;
+    }
+
+    /* ----- about ----- */
+    .majors {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px;
+        text-align: center;
+    }
+
+    .major {
+        background-color: black;
+        color: white;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 2rem 1rem;
+    }
+
+    .major__icon {
+        font-size: 4rem;
+        margin: 1rem 0;
+        color: var(--color--border);
+        transition: all 0.5s ease;
+    }
+
+    .major__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .major:hover .major__icon {
+        transform: rotate(-15deg) scale(1.2);
+    }
+
+    /* my work */
+    #work{
+        background: black;
+        color: white;
+    }
+
+    .categories{
+        display: flex;
+        justify-content: center;
+        margin: 2.5rem;
+        gap: 1rem;
+    }
+
+    .category{
+        position: relative;
+        color: white;
+        font-size: 1rem;
+        border: 2px solid var(--color--border);
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0.5rem 2.5rem;
+        background-color: black;
+    }
+
+    .category--selected{
+        background-color: var(--color--border);
+        color: black;
+    }
+
+    .category__count{
+        opacity: 0;
+        position: absolute;
+        top: -5px;
+        width: 30px;
+        height: 30px;
+        background: orange;
+        padding: 10px 15px;
+        border-radius: 50%;
+    }
+
+    .category--selected .category__count, .category:hover .category__count{
+        opacity: 1;
+    }
+
+    .category--selected:hover .category__count{
+        opacity: 1;
+        background: white;
+    }
+</style>
+
+<body>
+    <!-- 헤더 로고와 메뉴들을 보여주는 탭으로 사용함
+   BEM 실무 기본적으로 id를 쓰지 않고 무조건 class-->
+    <!-------- header----->
+    <header class="header">
+        <div class="header__logo">
+            <img class="header__logo__img" src="../img/열동그라미.png" alt="logo">
+
+            <h1 class="header__logo__title"><a href="#">qorygnsska</a></h1>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__menu">
+                <li><a class="header__menu__item" href="#">Home</a></li>
+                <li><a class="header__menu__item" href="#">About</a></li>
+                <li><a class="header__menu__item" href="#">Skills</a></li>
+                <li><a class="header__menu__item" href="#">My work</a></li>
+                <li><a class="header__menu__item" href="#">content</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <!--------- home ------>
+        <section id="home">
+            <img class="home__img" src="../img/열동그라미.png" alt="logo">
+            <h2 class="home__title"><strong class="home__title--strong">I'm developer</strong> , qorygnsska</h2>
+            <a class="home__contact" href="#">Contact</a>
+        </section>
+
+        <!------- about ----- -->
+        <section id="about" class="section max-container">
+            <h2 class="title">About me</h2>
+            <p class="description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quasi labore aspernatur fugit
+                necessitatibus tempore deserunt ex iusto, hic earum sed vero aliquam illo possimus? Dolor omnis aut
+                excepturi. Ducimus.
+            </p>
+
+            <ul class="majors">
+                <li class="major">
+                    <img>
+                    <i class="fa-brands fa-html5 major__icon"></i>
+                    <p class="major__title">Front-end</p>
+                    <p>HTML, CSS, JavaScript, React, Web APIs</p>
+                </li>
+
+                <li class="major">
+                    <i class="fa-solid fa-mobile major__icon"></i>
+                    <p class="major__title">Mobile</p>
+                    <p>Android, iOS, React Native, Flutter, Java, Swift, Kotlin</p>
+                </li>
+
+                <li class="major">
+                    <i class="fa-solid fa-server major__icon"></i>
+                    <p class="major__title">Back-end</p>
+                    <p>Java, JavaScript, Go, NodeJs, Rest APIs, GraphQL</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- my work -->
+        <section id="work" class="section">
+            <div class="max-container">
+                <h2 class="title">My Work</h2>
+                <p class="description">Projects</p>
+
+                <ul class="categories">
+                    <li>
+                        <button class="category category--selected">All
+                            <span class="category__count">8</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="category">Front-end
+                            <span class="category__count">3</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="category">Back-end
+                            <span class="category__count">3</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="category">Mobile
+                            <span class="category__count">2</span>
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- 실제 이미지 -->
+                <ul class="projects">
+                    <li class="project">
+                        <img src="../img/project1.webp" alt="project1" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #1</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project2.webp" alt="project2" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #2</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project3.webp" alt="project3" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #3</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project4.webp" alt="project4" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #4</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project5.webp" alt="project5" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #5</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project6.webp" alt="project6" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #6</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project7.webp" alt="project7" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #7</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+
+                    <li class="project">
+                        <img src="../img/project8.webp" alt="project8" class="project__img">
+                        <div class="project__metadata">
+                            <h3 class="project__title">Project #8</h3>
+                            <p>Clone Coding with HTML, CSS</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
