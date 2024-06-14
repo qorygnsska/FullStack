@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .img {
+            margin-top: 100px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;   
+            align-items: center;
+            
+        }
+        #inputid{
+            margin-top: 100px;
+        }
+        #inputid, #inputpass{
+            width: 400px;
+            height: 50px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            font-size: 15px;
+        }
+        
+        #btn{
+            width: 400px;
+            height: 50px;
+            margin-top: 50px;
+            background: rgb(3, 199, 90);
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input{
+            padding: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="../img/네이버.PNG" alt="zz" class="img">
+        <form class="form">
+            <input type="text" id="inputid" placeholder="아이디">
+            <input type="password" id="inputpass" placeholder="비밀번호">
+            <button id="btn">로그인</button>
+        </form>
+    </div>
+</body>
+
+</html>

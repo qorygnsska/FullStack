@@ -1,0 +1,36 @@
+.img{
+    width: 150px;
+    height: 150px;
+}
+
+.info{
+    font-weight: bold;
+}
+
+body{
+    background: lightgray;
+}
+
+.white-box{
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 2px 1px #eee;
+    padding: 20px;
+}
+
+.container{
+    padding-top: 10px;
+}
+
+.pill{
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: 100px;
+    padding: 5px 16px;
+    margin: 5px;
+}
+
+.due{
+    width: 60px;
+    height: 60px;
+}
