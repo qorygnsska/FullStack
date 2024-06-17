@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function5</title>
+</head>
+<body>
+    <div class="test1">안녕하세요!</div>
+    <div id="test2">안녕하세요!!</div>
+
+    <div class="test1">안녕하세요!</div>
+
+    <script>
+        // html에서 요소를 찾아주는 셀렉터도 있다
+
+        // 변수를 이용해서 검색한 요소를 저장한 다음에 속성값을 변경하면 된다.
+        const select = document.querySelector('.test1');
+        select.innerHTML = "안녕";
+         // 글씨 색상을 red 변경
+         select.style.color = 'red';
+         
+        console.log(select);
+
+        const select2 = document.querySelectorAll('.test1');
+        console.log(select2);
+
+        /*
+            .test1의 innerHTML값을 모두 Hello로 변경!
+        */
+       for(let i = 0; i < select2.length; i++){
+        select2[i].innerHTML = "Hello";
+       }
+    </script>
+</body>
+</html>
