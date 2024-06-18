@@ -1,0 +1,10 @@
+#register{
+    border: 2px solid rgb(243, 203, 129);
+    background-color: rgb(145, 231, 164);
+    padding: 10px;
+    /* 위에 어떤 부모도 없으면 body를 부모로 잡는다! */
+    position: absolute;
+    top: 260px;
+    right: 50px;
+    display: none;
+}

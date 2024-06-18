@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤3.html</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .header, .footer{
+            width: 100%;
+            background: pink;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .content{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .box{
+            border: 1px solid black;
+            height: 100vh;
+            margin-bottom: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        .menu a{
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3>헤더</h3>
+        <div class="menu">
+            <a onclick="scrollToDiv('sectionA')">a</a>
+            <a onclick="scrollToDiv('sectionB')">b</a>
+            <a onclick="scrollToDiv('sectionC')">c</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="sectionA" class="box">A</div>
+        <div id="sectionB" class="box">B</div>
+        <div id="sectionC" class="box">C</div>
+    </div>
+
+    <div class="footer">
+        푸터
+    </div>
+
+    <script>
+        // scrollIntoView()
+        // 선택한 요소가 뷰 포트 내에서 보이도록 스크롤 한다.
+         // 수직 정렬을 선택할 경우에는 block
+        // 수평 정렬을 선택할 경우에는 inline
+        function scrollToDiv(divId){
+            document.getElementById(divId).scrollIntoView({
+                behavior:'smooth',
+                block:'start'
+            });
+        }
+
+          // 실습 
+        //  오른쪽 하단에 되돌아가기 버튼을 누르면 
+        //  아이콘 모양이나 디자인은 마음대로! 
+        //  가장 위쪽으로 스크롤이 올라 갈 수 있도록
+        //  프로그래밍 하시오!
+    </script>
+</body>
+</html>

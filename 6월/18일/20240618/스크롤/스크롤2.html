@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤2.html</title>
+    <style>
+        /* display : flex
+        방향 col 모두 가운데로 정렬 */
+        /* body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        } */
+        .scroll-container{
+            width: 80%;
+            height: 50vh;
+            border: 2px solid #eee;
+            /* 위 아래로 스크롤 부착 */
+            overflow: scroll;
+        }
+        .content{
+            /* content 클래스가 그라데이션 설정 */
+            height: 200vh;
+            background: linear-gradient(to bottom, rgb(212, 84, 238), #5b30f7);
+        }
+        .button-container{
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container" id="scroll-container">
+        <div class="content" id="content">
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="scrollByA(0, -100)">
+            Scroll Up by 100px
+        </button>
+        <button onclick="scrollByA(0, 100)">
+            Scroll Down by 100px
+        </button>
+        <button onclick="scrollToTop()">
+            Scroll to Top
+        </button>
+        <button onclick="scrollToBottom()">
+            Scroll to Bottom
+        </button>
+    </div>
+
+    <!-- 내가 버튼을 클릭했을 때 실행하는 동작을 작성 -->
+     <script>
+        function scrollByA(x, y){
+            // scroll-container 요소값을 찾아서
+            // scrollBy({});
+            document.getElementById("scroll-container").scrollBy({lert:x,top:y,behavior:'smooth'});
+        }
+
+        // 버튼을 눌렀을 때 스크롤이 자동으로 아래까지 내려가는 함수
+        function scrollToBottom(){
+            const con = document.getElementById("scroll-container");
+
+            con.scrollTo({
+                top:con.scrollHeight,
+                behavior:'smooth'
+                // 부트스트랩에서는 자동으로 적용이 되어있다.
+            });
+        }
+
+        // 버튼을 눌렀을 때 스크롤이 자동으로 위까지 내려가는 함수
+        function scrollToTop(){
+            const con = document.getElementById("scroll-container");
+
+            con.scrollTo({
+                top:0,
+                behavior:'smooth'
+                // 부트스트랩에서는 자동으로 적용이 되어있다.
+            });
+        }
+     </script>
+</body>
+</html>
