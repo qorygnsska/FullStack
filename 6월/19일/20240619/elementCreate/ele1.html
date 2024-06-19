@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="Element 만들기" onclick="elementCreate()">
+
+
+    <script>
+        // 위에 요소를 실행할 때 사용하는 자바
+        // 스크립트 태그!
+        // html 요소를 추가하는 함수
+        function elementCreate() {
+            // createElement('태그명')생성
+            // 태그만 만들지 안에 내용이 비어있다.
+            let div = document
+                .createElement('div');
+            // <div></div>
+            console.log(div);
+            /*
+           createAttribute('속성이름')
+           인수로 속성이름을 넣어서 설정   
+            */
+            div.setAttribute('style'
+                , 'border : 2px solid red');
+
+            div.innerHTML = '<marquee>div 태그 추가</marquee>';
+
+            // html 문서에 추가한다.
+            document.body.appendChild(div);
+
+        }
+    </script>
+</body>
+
+</html>

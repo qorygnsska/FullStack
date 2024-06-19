@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#colorBox{
+    width: 300px;
+    height: 300px;
+    border: 2px solid hotpink;
+    position: relative;
+    margin-bottom: 20px;
+
+}
+
+#red,#blue ,#yellow,#black{
+    width:150px;
+    height:150px;
+    border: 1px solid gray;
+    position: absolute;
+}
+#blue{
+    left:150px;
+}
+#yellow{
+    top:150px;
+}
+#black{
+    top:150px;
+    left:150px;
+
+}
+input{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+p{
+    margin: 0;
+}
+
+#colorBox2{
+    width: 450px;
+    height: 300px;
+    border: 2px solid hotpink;
+    position: relative;
+    margin-top: 20px;
+
+  
+}
+#a,#b,#c,#d,#e,#f{
+    width:150px;
+    height:150px;
+    border: 1px solid gray;
+    position: absolute;
+}
+#b{
+    top:150px;
+}
+#c{
+    left:150px;
+}
+#d{
+    left:150px;
+    top:150px;
+}
+#e{
+    left:300px;
+}
+#f{
+    left:300px;
+    top:150px;
+}

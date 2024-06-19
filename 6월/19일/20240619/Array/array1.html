@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폴더명: array 파일명: array1.html</title>
+    <script src="array1.js"></script>
+    <style>
+        #result{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .green{
+            color:green;
+        }
+        .red{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <p>비밀번호</p>
+    <input type="text" id="password" onkeyup="checkPassword()" >
+    <button>회원가입</button>
+    <p id="result" >결과를 출력하기</p>
+
+    <script>
+        // 버튼을 클릭했을 때 
+        function checkPassword(){
+            //요소값 가져오기 
+            const password = document
+                        .getElementById('password')
+                        .value;
+            const resultEle = document
+                        .getElementById('result');
+
+            //console.log(password);
+            //console.log(resultEle);
+            const isResult = /\S+/.test(password);
+            console.log(isResult);
+            if(isResult){
+                // p태그에 글씨를 작성
+                // 초록색 
+                resultEle.innerHTML ='비밀번호 가능';
+                // 클래스이름 속성 추가
+                // className = 클래스명;
+                resultEle.className="green";
+            }else{
+                // p태그에 글씨를 작성 
+                // 빨간색 
+                resultEle.innerHTML ='비밀번호 불가능';
+                resultEle.className="red";
+            }
+            
+            
+            
+            
+            
+            
+            
+        }
+        // 특수문자,숫자,대소문자
+        // 하나 이상 포함되어있으면
+        // 비밀번호 사용가능합니다.
+        
+        </script>
+</body>
+</html>
+<!-- 
+
+// const hasAlphabet = /[a-zA-Z]/.test(password);
+// const hasAlphabet = /[0-9]/.test(password);
+// const hasAlphabet = /[A-Z]/.test(password);
+// const hasAlphabet = /[!@#\$%\^\&*\)\(+=._-]/.test(password);
+
+
+-->
