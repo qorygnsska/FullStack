@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 라이브러리 CDN
+      CDN(Content Delivery Network)약자로
+      웹 사이트에서 접속자가 도루를 다운로드 할때 
+      자동으로 가장 가까운 서버로 이동해서 다운을
+      받는 기술이다!
+
+      수업을 할 때는 CDN 사용 가능
+      웹 프로젝트 배포할 때는 조심해서! 사용하기
+
+      
+      -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- <script defer src="jquery-3.7.1.min.js"></script> -->
+    <script defer src="JQuery1.js"></script>
+</head>
+
+<body>
+    <!-- 자바스크립트 코드가 너무 길어서 짧게
+     줄여주는 라이브러리 (도구)
+     
+     자바스크립트는 브라우저 호환성 문제 때문에
+     불편한 점이 있다. IE 자바스크립트 호환성이
+     좋지 않다 똑같은 코드도 실행이 안된다. 
+
+     제이쿼리 라이브러리를 사용하기 위해서는
+     도구를 다운 받아야된다. 
+
+     -->
+
+    <h2>jQuery 시작</h2>
+
+    <p>
+    <ul id="list">
+        <li>셀렉터 표현식</li>
+        <li>DOM 탐색 함수</li>
+        <li>DOM 검색 함수</li>
+        <li>이벤트 함수</li>
+        <li>이펙트 함수</li>
+        <li>ajax 메소드</li>
+        <li>기타 등등...</li>
+    </ul>
+    </p>
+
+    <p>
+        <button type="button" onclick="imgSize()">이미지 크기 변경</button>
+        <button type="button" onclick="highLight()">리스트 선택</button>
+        <button type="button" onclick="addImg()">이미지 추가</button>
+        <button type="button" onclick="hideImg()">이미지 숨기기</button>
+        <button type="button" onclick="showImg()">이미지 보이기</button>
+        <button type="button" onclick="toggleImg()">이미지 토글</button>
+    </p>
+
+    <div>
+        <img alt="피카츄" src="./img/img02.jpg" />
+    </div>
+</body>
+
+</html>
