@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <button class="btn btn-primary mt-2" id="more">더보기</button>
+    </div>
+
+    <script>
+        var products = [
+            { id: 0, price: 70000, title: 'Blossom Dress' },
+            { id: 1, price: 50000, title: 'Springfield Shirt' },
+            { id: 2, price: 60000, title: 'Black Monastery' }
+        ];
+
+        // 변수안에 요소값을 추가하는 함수를 동작하는 콜백함수 작성하기
+        // 요소값을 계속 만들 수 없기 때문에 변수에 저장해서
+        // 템플릿을 추가하는 내용을 반복해서
+        // 만들 예정!
+        function appendProducts(products) {
+            products.forEach(function (product) {
+                var 템플릿 = '<div class="col-sm-4">'
+                    + '<div class="card">'
+                    + '<img src="열동그라미.png" class="card-img-top" alt="...">'
+                    + '<div class="card-body">'
+                    + '<h5 class="card-title">' + product.title + '</h5>'
+                    + '<p class="card-text"> 가격:' + products.price + '</p>'
+                    + '</div>'
+                    + '</div>'
+                    + '</div>';
+
+                // 템플릿을 추가할 요소를 가져오기
+                $('.row').append(템플릿);
+            });
+        }
+
+        appendProducts(products);
+
+        $('#more').click(function () {
+            // 위에 있는 3개의 한 행이 다시한번
+            // 만들어지면 된다.
+            appendProducts(products);
+        });
+
+        // for (let i = 0; i < products.length; i++) {
+        //     var 템플릿 = '<div class="col-sm-4">'
+        //         + '<div class="card">'
+        //         + '<img src="열동그라미.png" class="card-img-top" alt="...">'
+        //         + '<div class="card-body">'
+        //         + '<h5 class="card-title">' + products[i].title + '</h5>'
+        //         + '<p class="card-text"> 가격:' + products[i].price + '</p>'
+        //         + '</div>'
+        //         + '</div>'
+        //         + '</div>';
+
+        //     // 템플릿을 추가할 요소를 가져오기
+        //     $('.row').append(템플릿);
+        // }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

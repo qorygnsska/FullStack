@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxTest.html</title>
+    <!-- defer : script 파일이 크기가 너무 클 경우 다운로드가 전부 안될 수 있다.
+                이때 defer를 붙여주면 html 문서가 끝나기 전까지 실행하지 말고 기다려라 라는 뜻 -->
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="ajaxTest.js" defer></script>
+</head>
+<body>
+    <!-- 출력하는 열의 이름 id, name, username, email, address(city) -->
+   
+    <div class="container">
+        <h1>User Data Table</h1>
+        <div class="form-group">
+            <select id="recordCount" class="form-control" style="width: 200px; display: inline-block;">
+                <option value="2">2</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+            
+            </select>
+
+        </div>
+
+        <!-- 테이블 생성 -->
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+            </tbody>
+        </table>
+    </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .menu a {
+            color: white;
+            text-decoration: none;
+        }
+        .menu-hover{
+            background-color: pink;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>메뉴</h2>
+
+        <div class="menu bg-dark mb-3 p-3 border border-warning rounded">
+            <a href="">필터링함수1</a>
+            <div>first()</div>
+            <div>eq()</div>
+            <div>slice()</div>
+            <div>last()</div>
+        </div>
+
+        <div class="menu bg-dark mb-3 p-3 border border-warning rounded">
+            <a href="">필터링함수2</a>
+            <div>first()</div>
+            <div>eq()</div>
+            <div>slice()</div>
+            <div>last()</div>
+            <div>find()</div>
+            <div>next()</div>
+        </div>
+
+        <div class="menu bg-dark mb-3 p-3 border border-warning rounded">
+            <a href="">필터링함수3</a>
+            <div>add()</div>
+            <div>is()</div>
+        </div>
+
+
+    </div>
+
+    <script>
+        $().ready(function () {
+            // 메뉴 div안에 있는 자식들을 안보이게 설정
+            $('.menu > div').hide();
+
+            // hover를 이용해서 제이쿼리에서
+            // 마우스 올라가면 "마우스올라감!"
+
+            // hover(): 자바스크립트의 mouseenter, 
+            //      mouseleave 이벤트를 하나의 이벤트로 연결하고 선택된 요소에서
+            // mouseenter, mouseleave 이벤트가 발생되었을 때 설정한 함수를 실행한다.
+            // mouseenter: 마우스가 요소 위로 올라올 때 발생되는 이벤트
+            // mouseleave: 마우스가 요소에서 빠져나갈 때 발생되는 이벤트
+            // hover(mouseenter 이벤트가 실행되면 실행할 함수, mouseleave 이벤트가 실행되면 실행할 함수)
+
+            // stop()
+            // 이벤트가 실행되면 다른 요소에서 실행중인 이벤트 즉시 중단
+            $('.menu').hover(function () {
+                $(this).addClass(".menu-hover").children('div').stop().slideDown();
+            }, function(){
+                $(this).removeClass(".menu-hover").children('div').stop().slideUp();
+            });
+        });
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

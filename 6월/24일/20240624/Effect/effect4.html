@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>effect4</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- 자바스크립트의 배열을 이용해서 
+                 카드 레이아웃이 들어가는 자리! 
+            -->
+        </div>
+        <button type="button" class="btn btn-primary mt-2" id="more">더보기</button>
+
+        <button type="button" class="btn btn-success mt-2">6만원 이하 상품보기</button>
+        <button type="button" class="btn btn-danger mt-2" id="search">특정 문자 검색</button>
+    </div>
+
+
+    <script>
+        // 배열에서 사용하는 함수
+        // 배열에서 원하는 자료만 필터링 하고 싶을때
+        // filter() 검색한 내용들로 새로운 데이터가 
+        //          만들어지기 때문에 새로운 변수나 
+        //          새로운 배열에 담아 줘야된다. 
+
+        // sort()는 정렬을 기존 변수 안에서 변경된
+        //          데이터를 저장한다. 
+
+        let array = [7, 3, 5, 2, 40];
+
+        // 배열에서 0번째 부터 하나씩 꺼내서
+        // a라는 매개변수에 저장한다. 
+        // 매개변수가 조건을 확인하고 조건이 맞으면 
+        // 새로운 변수에 저장한다. 
+        let resultArray = array.filter(function (a) {
+            return a < 5;
+        });
+
+        console.log(resultArray);
+
+        var products = [
+            { id: 0, price: 70000, title: 'Blossom Dress' },
+            { id: 1, price: 50000, title: 'Springfield Shirt' },
+            { id: 2, price: 60000, title: 'Black Monastery' }
+        ];
+
+        // 6만원 이하인 상품만 card레이아웃에 출력하기
+        let resultPrice = products.filter(
+            function (product) {
+                return product.price <= 60000;
+            }
+        );
+        console.log(resultPrice);
+
+        // 특정 문장 혹은 문자를 검색하면 원하는 결과를
+        // 얻는 것!
+
+        $('#search').click(function () {
+            // 'B'가 포함된 객체를 필터링 
+            let filterPro = products.filter(function (p) {
+                return p.title.includes('D');
+            });
+            console.log(filterPro);
+        });
+
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

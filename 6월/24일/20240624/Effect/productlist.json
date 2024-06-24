@@ -1,0 +1,82 @@
+[
+    {
+        "id": 0,
+        "price": 70000,
+        "title": "Blossom Dress",
+        "sales": 150,
+        "date": "2023-06-20",
+        "ranking": 2
+    },
+    {
+        "id": 1,
+        "price": 50000,
+        "title": "Springfield Shirt",
+        "sales": 250,
+        "date": "2023-06-21",
+        "ranking": 1
+    },
+    {
+        "id": 2,
+        "price": 60000,
+        "title": "Black Monastery",
+        "sales": 100,
+        "date": "2023-06-22",
+        "ranking": 3
+    },
+    {
+        "id": 3,
+        "price": 40000,
+        "title": "White Shirt",
+        "sales": 300,
+        "date": "2023-06-23",
+        "ranking": 5
+    },
+    {
+        "id": 4,
+        "price": 30000,
+        "title": "Blue Jeans",
+        "sales": 200,
+        "date": "2023-06-24",
+        "ranking": 4
+    },
+    {
+        "id": 5,
+        "price": 20000,
+        "title": "Green Scarf",
+        "sales": 50,
+        "date": "2023-06-25",
+        "ranking": 6
+    },
+    {
+        "id": 6,
+        "price": 90000,
+        "title": "Yellow Jacket",
+        "sales": 400,
+        "date": "2023-06-26",
+        "ranking": 7
+    },
+    {
+        "id": 7,
+        "price": 10000,
+        "title": "Pink Socks",
+        "sales": 450,
+        "date": "2023-06-27",
+        "ranking": 8
+    },
+    {
+        "id": 8,
+        "price": 80000,
+        "title": "Gray Hat",
+        "sales": 220,
+        "date": "2023-06-28",
+        "ranking": 9
+    },
+    {
+        "id": 9,
+        "price": 15000,
+        "title": "Red Gloves",
+        "sales": 500,
+        "date": "2023-06-29",
+        "ranking": 10
+    }
+]

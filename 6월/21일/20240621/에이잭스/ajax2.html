@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax2.html</title>
+    <!-- 제이쿼리 라이브러리 포함하기 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="JQuery_ajax2.js" defer></script>
+</head>
+<body>
+   <h1>JSON 타입으로 서버 통신</h1>
+
+   <button id="loadPosts">posts</button>
+   <button id="loadComments">comments</button>
+   <button id="loadAlbums">albums</button>
+   <button id="loadPhotos">photos</button>
+   <button id="loadTodos">todos</button>
+   <button id="loadUsers">users</button>
+
+   <!-- 통신해서 온 결과를 data에 -->
+   <div id="data"></div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>effect3</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <script>
+        $().ready(function () {
+            // 정렬
+            // 상품 가격순,많이 판매한물건의수!
+            let array = [7, 3, 5, 2, 40];
+
+            // return 오른쪽이 양수면 a를 오른쪽으로 정렬해준다.
+            //  오름차순 정렬을 한다. 
+
+            array.sort(function (a, b) {
+                return a - b;
+            });
+            console.log(array);
+
+            // 내림차순 정렬 
+            // return 값이 음수면 b를 오른쪽으로
+            // 보낸다. 결국 작은 수를 뒤로 보낸다.
+            let array2 = [7, 3, 5, 2, 40];
+            array2.sort(function (a, b) {
+                return b - a;
+            });
+
+            console.log(array2);
+
+            var products = [
+                { id: 0, price: 70000, title: 'Blossom Dress' },
+                { id: 1, price: 50000, title: 'Springfield Shirt' },
+                { id: 2, price: 60000, title: 'Black Monastery' }
+            ];
+
+            // 오름차순 정렬!(가격을 이용한 정렬)
+            // products.sort(function(a,b){
+            //     return a.price - b.price;
+            // });
+            // console.log(products);
+
+            // title을 이용해서 문자를 정렬
+
+
+            // 내림차순 정렬!
+            // var products2 = [
+            // { id: 0, price: 70000, title: 'Blossom Dress' },
+            // { id: 1, price: 50000, title: 'Springfield Shirt' },
+            // { id: 2, price: 60000, title: 'Black Monastery' }
+            // ];
+            // products2.sort(function(a,b){
+            //     return b.price - a.price;
+            // });
+
+            // console.log(products2);
+
+            // 문자는 자동으로 정렬 된다.
+            let a = ['h', 'd', 'a', 'b'];
+            a.sort();
+            console.log(a);
+
+            // 내림차순으로 정렬 
+            a.sort().reverse();
+            console.log(a);
+
+            // 대소문자 구별해서 정렬
+            // sort()
+
+            // 대소문자를 구별하지 않고 정렬
+            // 1.배열에 있는 문자를 모두 소문자로 변경
+            // 2. 대문자로 변경 
+
+            let array3 = ["Banana", "apple"
+                , "Cherry", "date", "Elderberry"];
+
+            // localeCompare()
+            // 첫번째 문자열이 두번째 문자열보다 앞에 
+            //  와있는 경우  -1(음수)
+            // 문자가 같으면  0을 반환
+            // 첫번째 문자열이 두번째 문자열보다 뒤에
+            // 와 있는 경우 +1 (양수)
+            array3.sort(function (a, b) {
+
+                return a.toLowerCase()
+                    .localeCompare(
+                        b.toLowerCase());
+            });
+
+            let array4 = ['한', '글', '자', '배', '열'];
+
+            array4.sort(function (a, b) {
+                return a.localeCompare(b);
+            });
+            console.log(array4);
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
