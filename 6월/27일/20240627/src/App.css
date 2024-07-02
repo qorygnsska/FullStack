@@ -1,0 +1,8 @@
+/* 이미지 가져오기 */
+.main-bg{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('./img/img02.jpg');
+  height: 800px;
+  background-position: center;
+}

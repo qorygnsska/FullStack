@@ -1,0 +1,33 @@
+.photo{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+.profile{
+  position: relative;
+  width: 300px;
+  text-align: center;
+  background-color: #eee;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 10px 10px 5px 0px;
+}
+
+/* new라는 단락을 스타일 */
+.new{
+  position: absolute;
+  left: 55%;
+  top: 5%;
+  background-color: aqua;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.avartar{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
