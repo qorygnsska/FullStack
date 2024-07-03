@@ -13,8 +13,9 @@
 
 	<%
 		ArrayList<BoardDTO> boardList = BoardDAO.getInstance().getBoardList();
-
-		int count = BoardDAO.getInstance().getAllCount();
+		
+		int count = boardList.size();
+		/* int count = BoardDAO.getInstance().getAllCount(); */
 	%>
 
 	<div align="center">
@@ -45,7 +46,7 @@
 			<tr>
 				<td><%= temp.getNum() %></td>
 				<td><%= temp.getWriter() %></td>
-				<td><a href="#"><%= temp.getSubject() %></a></td>
+				<td><a href="_05boardInfo.jsp?num=<%=temp.getNum()%>"><%= temp.getSubject() %></a></td>
 				<td><%= temp.getRegDate() %></td>
 				<td><%= temp.getReadCount() %></td>
 			</tr>
