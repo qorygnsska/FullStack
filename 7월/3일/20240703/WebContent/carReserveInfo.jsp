@@ -34,7 +34,7 @@
 		}
 	%>
 
-	<form action="carMain.jsp?center=11_carOptionSelect.jsp" method="post">
+	<form action="carMain.jsp?center=carOptionSelect.jsp" method="post">
 
 		<table>
 			<tr height="100">

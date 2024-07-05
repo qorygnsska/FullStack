@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>20240705</display-name>
+
+	<!-- 웹에서 들어온 요청을 xml파일이 받아서 원하는 자바 파일로 갈 수 있도록 매칭 ! 톰캣 한테 서블릿 등록을 시킨다. -->
+	<servlet>
+		<servlet-name>loginServlet</servlet-name>
+		<servlet-class>servlet.LoginServlet</servlet-class>
+	</servlet>
+
+	<!-- url 경로를 매핑 -->
+	<servlet-mapping>
+		<servlet-name>loginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+
+	</servlet-mapping>
+
+
+
+</web-app>

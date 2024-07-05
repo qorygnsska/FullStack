@@ -49,6 +49,34 @@ public class RentcarDAO {
 		return conn;
 
 	}
+	
+	// 로그인을 확인하는 메서드
+	public int getMember(String id, String pw) {
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			
+			String sql = "select count(*) from member where id = ? and pw1 = ?";
+			
+			pt = conn.prepareStatement(sql);
+			
+			pt.setString(1, id);
+			pt.setString(2, pw);
+			
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 	// 자동차 정보 3개를 꺼내가는 메서드
 	public ArrayList<RentcarDTO> getSelectCar() {
@@ -156,5 +184,71 @@ public class RentcarDAO {
 		
 		return list;
 	}
+	
+	// 예약한 정보를 디비에 저장하는 메서드
+	public void setReserveCar(CarReserveDTO rbean) {
+		try {
+			conn = getConnection();
+			int num = 0;
+			
+			String sql = "select MAX(reserve_seq) from car_reserve";
+			
+			pt = conn.prepareStatement(sql);
+			
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				num = rs.getInt(1) + 1;
+			}
+			
+			sql = "INSERT INTO car_reserve (reserve_seq , no, id, qty, d_day, r_day, "
+					 + "use_in, use_wifi, use_navi, use_seat)" + " VALUES(?, ?,?,?,?,?,?,?,?,?)";
+			pt = conn.prepareStatement(sql);
+			
+			pt.setInt(1, num);
+			pt.setInt(2, rbean.getNo());
+			pt.setString(3, rbean.getId());
+			pt.setInt(4, rbean.getQty());
+			pt.setInt(5, rbean.getDday());
+			pt.setString(6, rbean.getRday());
+			pt.setInt(7, rbean.getUsein());
+			pt.setInt(8, rbean.getUsewifi());
+			pt.setInt(9, rbean.getUsenavi());
+			pt.setInt(10, rbean.getUseseat());
+			
+			pt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
+
+
+
+/*
+ *  MVC 디자인 설계 패턴 
+ *   Model : 데이터 조회 결과값을 저장할 객체 (vo,dto)
+ *   View  : 화면 구현(html, css,jsp,js,..)
+ *   Controller : 데이터베이스에 접근할 수있는 코드가
+ *     담긴 객체(DAO)
+ *  
+ * 
+ *  [jsp 방식]
+ *   [model1 방식]
+ *   main.jsp -> add.jsp -> info.jsp
+ *                  ^
+ *                  ㅣ
+ *               dao.jsp
+ *               
+ *   각 페이지 마다 필요시 자바 코드가 작성되며
+ *   DB와 연결하는 코드도 jsp 파일 안에서 모두 작성된다.
+ *   분리되어 있지 않기 때문에 규모가 작은 프로젝트에는 
+ *   나쁘지 않은 방식 ,코드가 확장 될 수록 가독성 떨어지고
+ *   분업과 유지보수가 좋지 않다.
+ *   
+ * 
+ * 
+ * 
+ */
