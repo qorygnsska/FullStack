@@ -1,0 +1,44 @@
+JSTL(JSP standard Tag Library)
+ - EL태그 처럼 JSP 페이지에서 자바코드를
+      사용하지 않기 위한 도구
+ - 조건문, 반복문을 태그 형태로 지원
+ - JSTL 사용하면 <% %> 스크립틀릿
+   내용 없이 간결하게 태그형태로 사용할 수있다.
+   
+ JSTL을 사용하기 위해서는 라이브러리를 추가해
+  야한다 .
+  
+  라이브러리를 추가하는 방법 
+  1) WebContent -> WEB-INF ->lib -> jstl-1.2.jar파일 추가
+  2) build path -> add to build path 클릭
+  3) tablib 태그 명령문을 추가 
+  
+  
+  jstl도 가운데 content 내용이 없다면
+     닫는 태그를 같이 써도 된다.
+   el에서 사용할 변수나 자바빈즈를 생성할 때
+      사용한다.
+      영역에 속성을 저장할 때는 setAttribute()
+      메서드와 같은 역할    
+      
+      
+   <c:set  var="변수명" >
+ 	value값을 저장 
+   </c:set>   
+      
+      
+   <c:set  var="변수명"
+      value="값"
+      scope="영역"/>
+      
+      
+   var  --> 변수명을 설정한다.
+   value --> 변수에 저장할 데이터
+   scope --> session,pageContext
+   ,Application,request 내장 객체에
+   저장할 수 있다 기본적으로 저장되는 곳은
+   pageContext 
+   target   --> 자바빈즈 설정 
+   property --> 자바빈즈 속성 set/getter 
+       
+ 
