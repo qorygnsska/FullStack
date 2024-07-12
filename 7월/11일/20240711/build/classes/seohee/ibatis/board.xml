@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 게시글이 올라가는 board sql 작성 파일 -->
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="seohee.dto.MvcDTO">
+	<insert id="insert" parameterClass="seohee.dto.MvcDTO">
+		insert into MVCBOARD(idx, name, subject, content, GUP, LEV, SEQ) 
+		values(MVCBOARD_SEQ.nextval, #name#, #subject#, #content#, #gup#, #lev#, #seq#)
+	</insert>
+	
+	<select id="selectAll" 
+	parameterClass="java.util.HashMap"
+	resultClass="seohee.dto.MvcDTO">
+		select * from(
+			select rownum rNum, Tb.* from 
+				(
+				select * from MVCBOARD order by idx desc
+				)Tb
+					  ) where rNum between #startNo# and #endNo#
+	</select>
+	
+	<select id="selectCount" resultClass="int">
+		select count(*) from MVCBOARD
+	</select>
+</sqlMap>
+
