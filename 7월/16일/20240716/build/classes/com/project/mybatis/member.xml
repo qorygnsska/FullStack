@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  문서의 타입을 저장 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.dto.MemberDTO">
+	 
+	 <select id="emailCheck" 
+	 		 resultType="int" 
+	 		 parameterType="String">
+        SELECT COUNT(*)
+        FROM homeUsers
+        WHERE EMAIL = #{email}
+    </select>
+    
+</mapper>
