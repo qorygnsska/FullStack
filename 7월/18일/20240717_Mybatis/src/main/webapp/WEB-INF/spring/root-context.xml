@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DB 관련된 Bean(자바객체를) 스프링 생성해서 주입할 수 있도록 정보를 설정한다 1. JDBC 연결을 위해서 DataSource 
+		클래스를 생성해서 그 안에 디비 연결 정보를 저장한다. -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+
+		<property name="username" value="KH" />
+
+		<property name="password" value="KH" />
+
+	</bean>
+
+	<!-- SqlsessionFactoryBean 객체를 생성해서 경로를 설정하고 sqlSession 객체를 생성할 수 있는 코드를 
+		작성하면 된다 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+
+		<property name="mapperLocations"
+			value="classpath:mapper/member-mapper.xml" />
+
+		<property name="configLocation"
+			value="classpath:config/mybatis-config.xml" />
+
+	</bean>
+
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+</beans>
+
+
+
+
