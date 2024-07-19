@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  파일명 member-mapper.xml 
+	1. 문서 타입을 저장 
+-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+	
+	<!--  resultMap 
+		태그는 데이터베이스 결과와 java객체를
+		매핑하기 위한 xml태그
+		
+		type: 결과를 매핑할 java클래스 전체 경로를 지정
+		id : resultMap의 고유한 식별자 
+		
+		<result /> resultMap내부에서만 사용
+				  실제 객체의 속성과 데이터베이스 컬럼
+				  매핑 해준다.
+		 property 속성: java클래스 멤버명
+		 column   속성: 데이터베이스 컬럼명
+		 typeHandler 속성: 데이터타입을 변환할 때 
+		 			  사용되는 TypeHandler클래스를
+		 			  지정(선택사항)
+		
+	 -->
+	
+	<resultMap type="com.ss.spring.member.dto.Member"
+			   id="memberMap">
+			   
+		<result property="id" 
+				column="id"/>
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="age" column="age" />
+		<result property="gender" column="gender" />
+		<result property="phone" column="phone" />
+		<result property="address" column="address" />
+		<result property="email" column="email" />
+		
+		<!--  취미는 배열로 들어온다 -->
+		<result property="hobby" 
+				column="hobby" 
+				typeHandler="com.ss.spring.member.common.MemberTypeHandler"/>
+		<result property="enrollDate" 
+				column="enrollDate" />
+		
+		
+	</resultMap>
+
+	<insert id="insertMember"
+		 parameterType="com.ss.spring.member.dto.Member"
+		 >
+		INSERT INTO MEMBER  VALUES (
+    	#{id}, #{password}, #{name},
+    	#{age},#{gender}, #{phone},
+    	#{address},#{email},
+    	#{hobby,typeHandler=com.ss.spring.member.common.MemberTypeHandler},
+        DEFAULT)
+	
+	</insert>
+	
+	<select id="selectMemberById"
+			parameterType="java.util.HashMap"
+			resultMap="memberMap">
+			
+			select * from member
+			where id = #{id}
+			
+			<if test="password != null">
+				and password = #{password}
+			</if>
+			
+	</select>
+	
+	<!--  전체 조회하는 sql문도 작성해서 
+	      resultMap="memberMap" -->
+	
+	<select id="seletAll"
+			resultMap="memberMap">
+	
+		select * from member		
+	</select>
+	
+	
+	<delete id="deleteMember"
+			parameterType="String">
+		delete from member
+		where id = #{id}
+			
+	</delete>
+	
+	
+	
+
+</mapper>
