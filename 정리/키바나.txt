@@ -1,0 +1,404 @@
+엘라스틱이랑 키바나 버전은 항상 똑같이 사용을 해야 호환이 된다!
+
+먼저 엘라스틱 서치 실행!
+- 웹브라우저를 이용해서 확인
+- localhost:9200
+
+그다음 키바나 실행!
+- 기본적으로 접근하는 포트 번호 5601
+
+키바나
+- 데이터형태 만들고 엘라스틱을 탐색할 수 있게 시각화 및 관리
+
+시스템 상태 확인
+- cat
+- 엘라스틱 서치의 현재 상태를 확인
+- #GET _cat
+
+인덱스(index), 
+도큐먼트(document)
+
+클러스터
+- 여러개의 컴퓨터가 서버 하나의 시스템처럼 동작하는 것
+
+도큐먼트
+- 엘라스틱 서치에서 데이터가 저장되는 기본적은 JSON 형태
+  하나의 도큐먼트에 여러 필드와 값 갖는다.
+**반드시 하나의 인덱스에 포함돼야 한다.**
+
+인덱스
+- 도큐먼트를 저장하는 논리적 단위
+GET
+POST
+PUT
+DELETE
+
+인덱스 생성
+PUT index1
+- put은 생성이나 수정을 위한 Http 메서드
+
+PUT index1
+GET index1
+DELETE index1
+
+PUT index2/_doc/1
+{
+ "name":"seohee",
+ "age" : 25,
+ "gender": "F"
+}
+- 데이터 타입을 지정하지 않아도 엘라스틱 서치는 도큐먼트 필드와
+  값을 보고 자동으로 지정하는데 이런 기능 다이나믹 매핑
+
+# GET index2
+
+새로운 필드를 추가하면 도큐먼트 인덱싱하기
+- PUT index2/_doc/2
+  {
+   "name":"kim",
+   "country":"korea"
+  }
+
+위에서 내가 추가하고 싶은 내용만 추가해도 문제는 없다!
+
+PUT index2/_doc/3
+{
+  "name": "jane",
+  "age": "20",
+  "gender": "female"
+}
+실제로 자동으로 형변환이 일어나기 때문에 
+크게 문제가 되지는 않지만 혹시 타입에 문제가 생길 수 있으니
+데이터는 잘 작성하기!
+
+한건 조회
+- GET index2/_doc/2
+
+인덱스명과 도큐먼트 아이디를 특정 도큐먼트에서 가져올 수 있다.
+
+전체 조회
+- GET index2/_search
+
+
+업데이트 할 때 사용하는 방법
+POST index2/_update/1
+{
+ "doc":{
+   "name":"lee"
+  }
+}
+GET index2/_doc/1
+
+위에 index2 중에서 삭제
+
+
+@벌크 데이터
+  데이터 CRUD 동작할 때 REST API
+  호출해 하나하나 도큐먼트를 요청하  
+  는 것이 아니라 벌크(Bulk) 한번에
+  요청하는 것!
+
+  API를 20번 호출해 20개의 인덱싱
+  할 경우 20번의 API요청이 발생함
+  API 한번으로 20개의 도큐먼트를
+  인덱싱한다면 휠씬 빠르고 경제적!
+  그래서 지원하는 것이 Bulk API
+
+읽기모드 지원 X
+나머지 지원 가능하다!
+
+POST _bulk
+ { "index" : { "_index" : "basketball", "_id" : "1" } }
+{ "team" : "Golden State Warriors", "name" : "Stephen Curry", "points" : 30, "rebounds" : 3, "assists" : 8, "blocks" : 5, "submit_date" : "2016-10-11" }
+{ "index" : { "_index" : "basketball", "_id" : "2" } }
+{ "team" : "Golden State Warriors", "name" : "Stephen Curry", "points" : 28, "rebounds" : 5, "assists" : 3, "blocks" : 1, "submit_date" : "2016-10-13" }
+{ "index" : { "_index" : "basketball", "_id" : "3" } }
+{ "team" : "Golden State Warriors", "name" : "Stephen Curry", "points" : 36, "rebounds" : 1, "assists" : 2, "blocks" : 4, "submit_date" : "2016-10-17" }
+{ "index" : { "_index" : "basketball", "_id" : "4" } }
+
+
+매핑
+- JSON 형태의 데이터를 루씬이 이해할 수 있도록 바꾸는 작업!
+  사용자가 직접 설정하면 명시적 매핑
+- 문자열 타입(text), 키워드(keyword)
+- null 자동으로 매핑시에는 필드에 추가 안함!
+- boolean, float, integer -> long
+- object 자동으로 매핑된다.
+
+GET index2/_mapping
+
+매핑(사용자 정의)
+PUT index3
+{
+  "mappings":{
+     "properties":{
+         "age": {"type":"short"},
+         "name":{"type":"text"},
+         "gender":{"type":"keyword"}
+      }
+   }
+}
+GET index3/_mapping
+
+text와 keyword 차이
+- text : 분석된 데이터를 저장하고 부분적으로 또는 단어별로 검색할 수 있다.
+          검색용 필드를 만들 때 많이 사용된다.
+- keyword : 정확한 값 비교, 필터링
+                 성별, 국가코드, 이메일 주소 등
+
+
+실제 사용하는 자료형
+자바가 사용하는 자료형!
+위치 정보
+geo-poing : 위도, 경도 값을 갖는다.
+geo-shape : 지형
+ip : ipv4, ipv6 타입 ip주소를 입력 가능하다.
+
+
+@ 매핑해서 검색하는 방법
+PUT text_index
+{
+ "mappings":{
+	"properties":{
+    "contents" : {"type":"text"}
+   
+	}
+   }
+}
+
+@ 도큐먼트 하나를 인덱싱
+PUT text_index/_doc/1
+{
+    "contents" : "beautiful day"
+}
+
+@ 인덱스 검색
+GET text_index/_search
+{
+  "query" : {
+        "match" : {
+             "contents" : "day"
+         }
+   }
+}
+
+"query" : 검색할 내용을 작성한다.
+"match" : 부분적으로 일치하는 문서를 찾아서 주어진 특정 단어가 포함된 문서를 찾는다!
+
+
+@키워드 타입 
+PUT keyword_index
+{
+ "mappings":{
+	"properties":{
+    "contents" : {"type":"keyword"}   
+	}
+   }
+}
+
+@도큐먼트 저장하기
+PUT keyword_index/_doc/1
+{
+  "contents" : "beautiful day"
+}
+
+@인덱스 검색 
+GET keyword_index/_search
+{
+   "query":{
+	"match":{
+    "contents":"day"
+           
+	}
+    }
+}
+
+
+PUT multifield_index
+{
+  "mappings": {
+    "properties": {
+      "message": {
+        "type": "text"
+      },
+      "contents": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+위에 생성한 index 조회
+- GET multifield_index/_mapping
+
+multifield_index 추가하는 작업
+PUT multifield_index/_doc/1
+{
+   "message" : "1 document",
+   "contents": "beautiful day"
+}
+
+PUT multifield_index/_doc/2
+{
+   "message" : "2 document",
+   "contents": "beautiful day"
+}
+
+PUT multifield_index/_doc/2
+{
+   "message" : "2 document",
+   "contents": "beautiful day"
+}
+
+
+도큐먼트 3개 인덱싱한 후 검색
+- match 쿼리 이용해서 검색
+
+
+@ 하위 필드 접근 
+GET multifield_index/_search
+{
+   "query":{
+	"term":{
+    "contents.keyword":"This is a beautiful"
+           
+	}
+    }
+}
+
+@키워드로 검색할 때는 term 쿼리타입
+ 단어나 문장이 정확히 일치하는 데이터를 찾을 
+  때 사용하는 방법
+
+@ 멀티 필드로 타입을 구성했을 때 상위 필드의 타입은
+    텍스트기 때문에 단어들이 포함되어있는 문서들을 다 찾아온다.
+    하위 타입을 이용했을 경우 똑같은 문장이 아니면 문서를 찾지 못한다.
+
+@ 인덱스 템플릿
+- 설정이 동일한 여러개의 인덱스를 만들 때 사용!
+
+@ 템플릿 확인 API
+GET _index_template
+
+GET _index_template/템플릿이름
+GET _index_template/ilm-history
+
+@ 위에 ilm시작하는 모든 템플릿 찾고 싶을 경우
+GET _index_template/ilm*
+
+@ 인덱스 템플릿 생성
+@ test_* 로 시작하는 모든 인덱스에 적용된다.
+@ 매핑과 세팅을 적용시킨다.
+@  "priority" 여러 템플릿이 겹칠 경우 우선순위
+@ shard 데이터를 나눠서 저장하는 단위
+                             @기본템플릿이름
+PUT _index_template/test_template
+{
+  "index_patterns":["test_*"],
+ "priority" : 1, 
+  "template":{
+	"settings":{
+ "number_of_shards":3,
+              "number_of_replicas":1 
+	},
+ "mappings":{
+  "properties":{
+    "age" : {"type":"short"},
+    "name": {"type":"text"},
+    "gender":{"type":"keyword"}
+	}
+	
+      }
+    }
+}
+@ 인덱스 템플릿을 만들고 나서 그 이후에 패턴으로
+    이름을 지으면 test_template 적용!
+    그 전에 만들었던 인덱스는 당연히 적용 안됨!
+
+
+@ 템플리 실제 index를 생성
+PUT test_index1/_doc/1
+{
+	"age" : 10,
+	"name": "lee",
+	"gender":"male"
+}
+
+
+@ 위에 템플릿 적용을 확인
+GET test_index1/_mapping
+
+@템플릿이 적용되지 않을 때 예외발생!
+PUT test_index2/_doc/2
+{
+	"age" : "19 years",
+	"name": "lee"
+
+}
+
+@문자열 타입으로 들어왔지만 age자체가 short
+   숫자를 저장하는 값이기 때문에 자동으로 변환
+PUT test_index2/_doc/2
+{
+	"age" : "19",
+	"name": "lee"
+}
+
+@템플릿 삭제 
+DELETE _index_template/내가만든 템플릿명
+
+DELETE _index_template/test_template
+
+@실제 삭제된 test템플릿 확인 명령문
+PUT test_index3/_doc/1
+{
+	"age" : "19 years",
+	"name": "lee"
+
+}
+PUT test_index4/_doc/1
+{
+	"age" : 19,
+	"name": "lee"
+
+}
+GET test_index4/_mapping
+
+
+
+PUT _index_template/multi_template1
+{
+  "index_patterns":"multi_*",
+ "priority" : 1, 
+  "template":{
+ "mappings":{
+  "properties":{
+    "age" : {"type":"integer"},
+    "name": {"type":"text"}
+	}	
+      }
+    }
+}
+
+
+
+
+PUT _index_template/multi_template2
+{
+  "index_patterns":"multi_data_*",
+ "priority" : 2, 
+  "template":{
+ "mappings":{
+  "properties":{
+    
+    "name": {"type":"keyword"}
+	}	
+      }
+    }
+}

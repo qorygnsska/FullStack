@@ -1,0 +1,93 @@
+# AWS 실시간 채팅 서버구현(서버리스)
+1. DynamoDB 생성
+   테이블명 : websocket-connections
+   파티션키 : connectionId
+
+2. 요청이 들어왔을 때 실행
+    Lambda 함수 생성
+    - connect 람다함수 생성
+      함수이름 : websocket-connect
+
+    # API gateway에서 요청이 들어왔을 때 파이썬 언어로 처리하는 코드
+    import json # json형식 데이터를 다루기 위한 도구
+    import boto3 # AWS 서비스 이용하기 위한 라이브러리
+    import os # 환경변수 다루기 위한 라이브러리
+
+    # DynamoDB 클라이언트 생성
+    dynamodb = boto3.client('dynamodb')
+
+    # api 요청을 받으면 실제 실행할 람다 함수를 작성
+    # 매개변수로 event, context
+    def lambda_handler(event, context):
+    
+        # API gateway에서 websocket을 연결 할 때 connectionId를 가져온다
+        # connectionId는 각 클라이언트의 고유한 식별 키
+        connectionId = event['requestContext']['connectionId']
+        
+        # 디비테이블에 연결ID를 저장한다.
+        # put_item() 메서드를 이용해서 테이블에 데이터를 저장
+        dynamodb.put_item(
+            # 환경변수 설정
+            TableName=os.environ['WEBSOCKET_TABLE'], 
+            # 아이템을 저장할 때 파티션 키 이름을 정확히 작성
+            Item={ # 저장할 데이터 항목을 정의한다
+                'connectionId': {  # 파티션 키
+                    'S': connectionId  # S는 String 타입
+                }
+            }
+        )
+
+        return {}
+
+
+
+
+    - disconnect
+      웹소켓 연결이 종료될 때 실행 람다함수
+      웹소켓 연결이 종료되면 DynamoDB 연결 ID를 테이블에서 삭제하기 위해서 실행
+      DynamoDB 서비스 선택 후 DeleteItem 검색 후 체크
+
+
+    - sendMessage
+      메시지를 주고 받을 때 실행되는 람다 함수
+
+      # 웹 소켓 클라이언트에게 받은 메시지를 꺼내오는 역할
+      message = json.loads(event['body'])['message']
+
+      # 디비에서 데이터를 가져올 때 페이징 처리
+      # 디비에 있는 모든 데이터를 가져오기 위해서 scan
+      paginator = dynamodb.get_paginator('scan')
+
+      DynamoDB 서비스 선택 후 Scan 검색 후 체크
+      Scan은 다이나모디비에서 데이터를 전체적으로 조회하는 작업
+      특정 조건 없이 데이터를 읽는 작업
+
+      테이블의 수가 많거나 읽어야되는 데이터가 많으면 Query가 더 유리할 수 있다.
+
+      ExecuteAPI 서비스 선택 후 ManageConnections 검색 후 체크
+      ManageConnections : 웹 소켓 연결 관리
+
+
+   # 위에서 코드 작성 후 환경설정 이미지 참조!
+   # 권한 부여
+   # DynamoDB 서비스 선택 후 PutItem 검색 체크!
+      다이나모디비 테이블에 항목을 추가하거나 기존 항목을 업데이트하는 작업을 수행하는 권한
+
+    ARN(Amazon Resource Name)
+    - 작성했을 때 특정 테이블에 접근해서 권한을 부여받아 위에 내용을 실행할 수 있다.
+    - 보안성을 높일 수 있다.
+    리전 : ap-northeast-2
+    테이블명 : websocket-connections
+    arn:
+    aws:
+    dynamodb:
+    ap-northeast-2:(리전)
+    626635448714:(계정번호)
+    table/websocket-connections(테이블명)
+
+
+
+  # WebSocketAPI 생성
+
+
+

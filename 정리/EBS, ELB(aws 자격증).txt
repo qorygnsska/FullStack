@@ -1,0 +1,141 @@
+EBS,ELB (aws 자격증) 
+
+EBS( Elastic Block Storage)
+ -  저장 공간이 생성되어지며 EC2 인스턴   
+       스 부작된다.
+ - 디스크 볼륨 위에 File System이 생성
+     된다.
+ - 클라우드에서 가상 하드디스크 (HDD)
+ - Availabilty zone (AZ)
+   : 각 리전(국가/도시) 안의 데이터 센
+       터
+     aws 서버 컴퓨터들이 모여있는 건물!
+
+EBS 볼륨 타입
+ SSD 군
+   - 아주 방대한 양의 데이터 처리를 
+      할수 있다. (데이터베이스)
+  - 빅데이터 분석시에 사용!
+  
+  1) General purpose ssd
+    - 최대 10k iops를 지원하며 
+        1GB당 3iops 속도가 나온다.
+
+  2) provisioned iops ssd
+    - 극도의 I/O 률을 요구하는 
+       환경에서 주로 사용됨
+       -  최대 64000 iops 지원 
+
+
+  iops
+    - 초 당 입출력 작업 수!
+    - 1초에 몇번의 읽기/쓰기 작업을 처리
+       할 수있는지 나타낸다.
+ 
+ ELB (Elastic Load Balancers)
+ 
+  병목현상 
+       - 한 쪽으로 엄청난 물량이 몰려드는 것!
+    웹상에서 흐르는 수많은 서버의 흐름을 
+    한쪽으로 치우치지 않고 균형있게 배분
+    시켜주는 역할!
+
+    - 하나의 서버로 traffic이 몰리는 병목현   
+      상 방지 
+   
+1. Application Load Balancer
+    OSI Layer 7 에서 작동됨
+   - http,https와 같은 traffic의 로드 
+     밸런싱에 가장 적합한다.
+   - 고급 request 라우팅 설정을 통하여 
+     특정 서버로 request 를 보낼 수있음
+
+ 2. Network load balancer
+   OSI layer 4에서 작동됨 
+      - 초당 수백만개의 request를 아주 미세
+     한  delay 로 처리하는 기능
+      - TCP 트래픽에서 적합함 
+      - 게임서버,IOT통신 
+  
+2. Classic Load Balancer
+      - 기존 서버와의 연동 
+      - 단순한 분산이 필요하거나 ,애플리케이   
+        션을 지원할때 
+      - 단순 분산: http,https,tcp 요청을 
+                   서버로 분산한다.
+    - EC2 인스턴스 추가, 삭제 될때 
+          자동으로 인식
+
+       - 상태 확인
+         서버가 정상인지 확인후 문제가있으면
+         서버로 요청 안함
+       - 예) 콜센터 
+
+S3 (Simple Storage Service)
+  - 안전하고 가변적인 Object 저장공간 
+  - 편리한 UI 인터페이스를 통해서 어디서나
+    쉽게 데이터를 저장하고 불러올 수있음
+  - 파일크기 0KB 부터 5TB까지 지원
+  - 이미지,동영상 파일 올릴 수 있음
+     영체제는 안된다. 
+  - 저장 공간 무제한
+  - Bucket 이라는 이름을 사용함(폴더)
+     Bucket 의 이름을 고유하다. 
+
+S3 Object 구성요소
+  - key
+  - value
+  - Version ID
+  - metadata 
+ - CORS 
+   한 Bucket의 파일을 다른 Bucket에서 
+     접근 할 수도록 해주는 기능!
+
+ S3 데이터 일관성 모델
+   - 데이터를 저장하고 수정할 때 일관성          
+      (consistency)
+
+   -  Read after Write Consistency
+     새로운 파일(객체)을 업로드(Put) 한
+         후 즉시 그 파일을 읽을 수 있는 상태
+  
+  - Eventual Consistency
+     기존 파일을 수정하거(update)하거나
+        삭제한 경우 데이터가 여러 서버에 걸쳐 
+        복제 된다.
+
+
+S3 스토리지 종류
+   - 일반 S3
+   가장 일반적으로 많이 사용되는 스토리지타입
+
+   - S3 - IA (Infrequent Access)
+   자주 접근되지는 않으나 접그시 빠른 접근이 
+     요구 되는 파일이 많을 시 사용
+     일반적인 S3에 비해서는 비용이 저렴하지만
+     접근시 추가 비용이 발생
+     ex) 백업 데이터, 감사 및 규제 데이터
+         아카이브 파일 등등..로그파일
+   
+  - S3 - One Zone IA(Infrequent Access)
+    - 단일 AZ를 통한 데이터 저장
+       - 단일 AZ에 의한 데이터 접근 제한 
+    - 데이터 접근시 S3- IA보다 20% 비용 저렴 
+    - 복사본이있는 백업파일,일시적 분석 데이터,  
+         캐시파일, 로그파일 등 
+
+  - Glacier
+     거의 접근하지 않을 데이터 저장시 유용
+         매우 저렴한 비용 
+         데이터 접근시 대략 4~5소요 
+         장기적인 보관을 할 때 사용하는 스토리지
+
+- Intelligent tiering
+         데이터 접근 패턴을 분석하는데 사용하는 비싼 계층
+         (standard) 드물게 사용하는 계층 IA
+        자동으로 옮겨서 저장한다. 
+        비용을 절감하면서도 빠른 접근성을 유지할 수있다.
+
+
+
+https://[BucketName].[Region].[amazonaws.com]/object.key
